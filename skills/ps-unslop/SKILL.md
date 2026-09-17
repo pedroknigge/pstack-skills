@@ -1,7 +1,11 @@
 ---
 name: ps-unslop
-description: Cut AI tells from any writing. Must always apply.
+description: "v0.0.1. Cut AI tells from any writing. Must always apply. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Unslop

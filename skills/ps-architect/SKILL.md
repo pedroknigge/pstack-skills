@@ -1,7 +1,11 @@
 ---
 name: ps-architect
-description: "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /ps-architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape."
+description: "v0.0.1. Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /ps-architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Architect

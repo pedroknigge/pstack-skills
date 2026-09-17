@@ -1,7 +1,11 @@
 ---
 name: ps-reflect
-description: Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.
+description: "v0.0.1. Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Reflect

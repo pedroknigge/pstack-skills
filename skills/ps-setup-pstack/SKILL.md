@@ -1,6 +1,10 @@
 ---
 name: ps-setup-pstack
-description: Configure which models pstack uses per role and at what reasoning budget. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /ps-setup-pstack, "configure pstack models", "pstack budget", or changing pstack's model choices.
+description: "v0.0.1. Configure which models pstack uses per role and at what reasoning budget. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /ps-setup-pstack, \"configure pstack models\", \"pstack budget\", or changing pstack's model choices. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Setup pstack

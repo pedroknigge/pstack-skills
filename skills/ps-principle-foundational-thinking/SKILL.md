@@ -1,7 +1,11 @@
 ---
 name: ps-principle-foundational-thinking
-description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious."
+description: "v0.0.1. Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Foundational Thinking

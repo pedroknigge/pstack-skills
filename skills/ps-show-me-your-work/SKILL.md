@@ -1,7 +1,11 @@
 ---
 name: ps-show-me-your-work
-description: "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /ps-show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away."
+description: "v0.0.1. Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /ps-show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Show me your work

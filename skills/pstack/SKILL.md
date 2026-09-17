@@ -1,6 +1,10 @@
 ---
 name: pstack
-description: Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor.
+description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # pstack

@@ -1,8 +1,12 @@
 ---
 name: ps-typescript-best-practices
-description: TypeScript best practices. Use when reading or editing any .ts or .tsx file.
+description: "v0.0.1. TypeScript best practices. Use when reading or editing any .ts or .tsx file. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 paths: ["**/*.ts", "**/*.tsx"]
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # TypeScript best practices

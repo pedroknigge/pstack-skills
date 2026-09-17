@@ -88,7 +88,9 @@ remove_skill() {
   return 1
 }
 
-# Print skill-parent dirs that should receive the pack.
+# Print skill-parent dirs that should receive the whole pack.
+# Always: Cursor/agents path (~/.agents/skills). Also Claude, Grok,
+# Cursor ~/.cursor/skills, Gemini, and AGY trees when those hosts exist.
 skill_parents() {
   if [[ "$MODE" == "global" ]]; then
     printf '%s\n' "${base}/.agents/skills"
@@ -97,6 +99,9 @@ skill_parents() {
     fi
     if command -v grok >/dev/null 2>&1 || [[ -d "${base}/.grok" ]]; then
       printf '%s\n' "${base}/.grok/skills"
+    fi
+    if command -v cursor >/dev/null 2>&1 || [[ -d "${base}/.cursor" ]]; then
+      printf '%s\n' "${base}/.cursor/skills"
     fi
     if command -v gemini >/dev/null 2>&1 || [[ -d "${base}/.gemini" ]]; then
       printf '%s\n' "${base}/.gemini/skills"
@@ -110,15 +115,15 @@ skill_parents() {
     if command -v agy >/dev/null 2>&1 || [[ -d "${base}/.gemini/antigravity/skills" ]]; then
       printf '%s\n' "${base}/.gemini/antigravity/skills"
     fi
-    if [[ -d "${base}/.cursor/skills" ]]; then
-      printf '%s\n' "${base}/.cursor/skills"
-    fi
   else
     printf '%s\n' "${base}/.agents/skills"
     [[ -d "${base}/.claude" ]] && printf '%s\n' "${base}/.claude/skills"
     [[ -d "${base}/.grok" || -f "${base}/.grok/config.toml" ]] && printf '%s\n' "${base}/.grok/skills"
+    [[ -d "${base}/.cursor" ]] && printf '%s\n' "${base}/.cursor/skills"
     [[ -d "${base}/.gemini" ]] && printf '%s\n' "${base}/.gemini/skills"
-    [[ -d "${base}/.cursor/skills" ]] && printf '%s\n' "${base}/.cursor/skills"
+    [[ -d "${base}/.gemini/config/skills" ]] && printf '%s\n' "${base}/.gemini/config/skills"
+    [[ -d "${base}/.gemini/antigravity-cli/skills" ]] && printf '%s\n' "${base}/.gemini/antigravity-cli/skills"
+    [[ -d "${base}/.gemini/antigravity/skills" ]] && printf '%s\n' "${base}/.gemini/antigravity/skills"
   fi
 }
 

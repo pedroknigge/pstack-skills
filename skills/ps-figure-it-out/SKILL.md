@@ -1,7 +1,11 @@
 ---
 name: ps-figure-it-out
-description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions via ps-show-me-your-work. Use for /ps-figure-it-out, 'figure it out', a large migration, or when no narrower playbook applies."
+description: "v0.0.1. Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions via ps-show-me-your-work. Use for /ps-figure-it-out, 'figure it out', a large migration, or when no narrower playbook applies. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Figure it out

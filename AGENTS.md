@@ -36,10 +36,11 @@ pstack-skills/                 ← this git root
 1. Read this hub and `skills/pstack/SKILL.md` before changing pack behavior.
 2. Do **not** invent new skill verbs or rewrite poteto/pstack meaning.
 3. Leaf folder names and frontmatter `name:` must stay `ps-<original-slug>`. Parent stays `pstack`.
-4. Internal cross-refs to other leaves use `ps-*` (`/ps-how`, the `ps-why` skill, `../ps-principle-…/`). Keep Cursor built-ins (`/create-skill`, `/loop`) and `cursor-team-kit` (`/deslop`) unprefixed.
-5. Role labels in `ps-setup-pstack` (`how explorer`, `why synthesizer`, …) are config keys, not skill invokes — leave them.
-6. Keep `README.md`, `install.sh`, `VERSION`, and `CHANGELOG.md` aligned when the pack surface changes.
-7. Do not force-push `main`. Do not publish to a skills registry unless the user asks.
+4. Every `SKILL.md` `description` starts with `v0.0.1` (e.g. `v0.0.1. …` or `v0.0.1 — …`) and includes `license: MIT` plus `metadata.version: "0.0.1"` / `metadata.author: pedroknigge`. If the leading version is not the latest in `VERSION` / changelog, update the skill before using it.
+5. Internal cross-refs to other leaves use `ps-*` (`/ps-how`, the `ps-why` skill, `../ps-principle-…/`). Keep Cursor built-ins (`/create-skill`, `/loop`) and `cursor-team-kit` (`/deslop`) unprefixed.
+6. Role labels in `ps-setup-pstack` (`how explorer`, `why synthesizer`, …) are config keys, not skill invokes — leave them.
+7. Keep `README.md`, `install.sh`, `VERSION`, and `CHANGELOG.md` aligned when the pack surface changes. Bumping the pack version means `VERSION`, every `description` prefix, every `metadata.version`, changelog, and README together.
+8. Do not force-push `main`. Do not publish to a skills registry unless the user asks.
 
 ## How to use the pack (when invoked)
 

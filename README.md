@@ -6,7 +6,7 @@
 npx skills add pedroknigge/pstack-skills -g -y
 ```
 
-Version **0.0.1**. MIT. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
+Version **0.0.1**. MIT. Every `SKILL.md` `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
 
 pstack is poteto's answer to slop-heavy agent output: less code, higher quality, fearless parallelism. The Cursor plugin is the upstream origin. This pack makes those same skill bodies installable via the [Skills CLI](https://github.com/vercel-labs/skills) (`npx skills add`) and `./install.sh`.
 
@@ -14,15 +14,15 @@ Leaf folders are prefixed `ps-*` so they do not collide with other skill names. 
 
 ## Install
 
-Primary path (all detected agents, all projects):
+Primary path — whole pack, all detected agents, all projects:
 
 ```bash
 npx skills add pedroknigge/pstack-skills -g -y
 ```
 
-`-g` installs globally. Omit it for the current repo only. `-y` skips prompts.
+`-g` installs globally. Omit it for the current repo only. `-y` skips prompts. The CLI auto-detects installed agents (Claude, Grok, Cursor, Gemini, and others).
 
-Also ship `./install.sh` for hosts the Skills CLI misses (Claude, Grok, Gemini/Antigravity trees when present, plus `~/.agents/skills`):
+Also ship `./install.sh` so one command copies **every** folder under `skills/` (parent `pstack` + all `ps-*` leaves) into every detected agent skill dir: Claude, Grok, Cursor / `~/.agents/skills`, and Gemini / AGY trees when those parents exist.
 
 ```bash
 ./install.sh
@@ -30,7 +30,13 @@ Also ship `./install.sh` for hosts the Skills CLI misses (Claude, Grok, Gemini/A
 ./install.sh --uninstall
 ```
 
-The installer copies **every** folder under `skills/` (parent + all `ps-*` leaves) into each detected skill directory.
+Antigravity (`agy`) sometimes needs explicit agents on the Skills CLI:
+
+```bash
+npx skills add pedroknigge/pstack-skills -g -y -a antigravity -a antigravity-cli
+# or close the gap without the skills CLI:
+./install.sh
+```
 
 ### Update
 
@@ -152,7 +158,7 @@ Packaging for this repo is MIT, Copyright (c) 2026 Pedro Knigge. See [LICENSE](L
 
 ## Version
 
-`VERSION` is `0.0.1`. Later cuts: patch bumps `0.0.1` → `0.0.99`, then `0.1.0`. See [CHANGELOG.md](CHANGELOG.md).
+`VERSION` is `0.0.1`. Every skill `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"`. Later cuts: patch bumps `0.0.1` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 

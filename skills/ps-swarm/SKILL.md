@@ -1,7 +1,11 @@
 ---
 name: ps-swarm
-description: "Fan out N parallel workers, drain them, and return one report. Use for /ps-swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration."
+description: "v0.0.1. Fan out N parallel workers, drain them, and return one report. Use for /ps-swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Swarm

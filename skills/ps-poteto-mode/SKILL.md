@@ -1,11 +1,15 @@
 ---
 name: ps-poteto-mode
-description: poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /ps-poteto-mode, or requests to work in this style.
+description: "v0.0.1. poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /ps-poteto-mode, or requests to work in this style. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+license: MIT
 disable-model-invocation: true
 mode: true
 icon: crown
 color: yellow
 reminder: New task? Playbook match or rigor needed -> apply /ps-poteto-mode. Casual turn or user opts out -> don't.
+metadata:
+  version: "0.0.1"
+  author: pedroknigge
 ---
 
 # Poteto mode
