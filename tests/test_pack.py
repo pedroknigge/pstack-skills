@@ -41,7 +41,16 @@ class VersionLock(unittest.TestCase):
         for path in skills:
             text = path.read_text(encoding="utf-8")
             m = re.search(r'^description:\s*"([^"]+)"', text, re.M)
-            if not m or not m.group(1).startswith("v0.0.1"):
+            if m:
+                desc = m.group(1)
+            else:
+                folded = re.search(
+                    r"^description:\s*>\s*\n\s+(\S[^\n]*)",
+                    text,
+                    re.M,
+                )
+                desc = folded.group(1) if folded else ""
+            if not desc.startswith("v0.0.1"):
                 bad.append(path.relative_to(ROOT).as_posix())
         self.assertEqual(bad, [])
 

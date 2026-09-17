@@ -81,7 +81,7 @@ redact() {
 single_line() {
   local flag="$1" text="$2" max="$3"
   [[ -n "$text" ]] || die "$flag is empty"
-  if printf '%s' "$text" | grep -q $'\n'; then
+  if [[ "$text" == *$'\n'* ]]; then
     die "$flag must be a single line"
   fi
   if ((${#text} > max)); then
