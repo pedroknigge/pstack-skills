@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/
+.env
+.env.*
+node_modules/
+*.log
+.agents/
+.claude/
+.grok/
+.gemini/
+.orderfield/
+.gstack/
+__pycache__/
+*.pyc
