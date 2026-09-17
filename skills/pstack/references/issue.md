@@ -35,7 +35,7 @@ Do **not** file here: consumer product bugs, "the user is stuck", failed app tes
    # empty query lists open issues on pedroknigge/pstack-skills
    ```
 
-2. **Draft** title + body. Labels: `bug` | `enhancement` only.
+2. **Draft** title + body. Labels: `bug`, `enhancement`, `dogfood`, `blindtest` (repeat `--label` or comma-separate). Dogfood / blindtest findings should carry `dogfood` and usually `blindtest` plus `bug` or `enhancement`.
    - No secrets, tokens, private transcripts, home paths, or consumer source dumps.
    - One draft per distinct finding.
    - Children write `ISSUE.md` (or `issues/<slug>.md`) and name it for the leader.
@@ -45,9 +45,9 @@ Do **not** file here: consumer product bugs, "the user is stuck", failed app tes
 4. **Submit** only after yes:
 
    ```bash
-   scripts/ps-issue.sh --title "…" --label bug \
+   scripts/ps-issue.sh --title "…" --label dogfood,enhancement \
      --body "…" --confirm
-   # or --body-file PATH
+   # or --body-file PATH --label blindtest --label bug
    ```
 
    Preview without posting:

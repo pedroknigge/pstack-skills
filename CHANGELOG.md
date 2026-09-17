@@ -22,6 +22,7 @@ This GitHub repo is **Pedro Knigge's public port**. It is **not** published by p
 - HITL issue module: `scripts/ps-issue.sh` always targets `pedroknigge/pstack-skills` (never consumer origin). Documented in parent `SKILL.md` and `skills/pstack/references/issue.md`. Children draft only; leader confirms in the same turn.
 - Sibling bridges (sensor, not fusion) under `skills/pstack/references/`: ArkGate, Orderfield, documentation-manager (reciprocal; live names `ps-architect` / `ps-figure-it-out` / parent `pstack`), vibe-proof-auditor. Parent announces `ArkGate|Orderfield|Docs|Vibe-proof: none|detected`. Optional `scripts/ps-detect-siblings.sh`.
 - Stdlib HTML renderer `scripts/render-report.py` (also `skills/pstack/scripts/`). Parent and `ps-show-me-your-work` emit an `.html` twin when the user asks for a report / HTML / dashboard. No invented scores.
+- Dogfood → backlog → release cycle: `docs/dogfood-cycle.md`, parent triggers (`dogfood` / `blindtest` / `probar pstack en un repo random`), `evals/` planted-vs-live stub. Issue labels: `dogfood`, `blindtest`, `bug`, `enhancement` (repeatable `--label`).
 
 ### Notes
 

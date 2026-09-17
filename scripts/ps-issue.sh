@@ -5,7 +5,7 @@
 set -euo pipefail
 
 REPO="pedroknigge/pstack-skills"
-LABELS="bug|enhancement"
+ALLOWED_LABELS="bug enhancement dogfood blindtest"
 TITLE_MAX=256
 SEARCH_MAX=256
 BODY_MAX_BYTES=32768
@@ -15,8 +15,11 @@ usage() {
   cat <<EOF
 Usage:
   scripts/ps-issue.sh --search [QUERY] [--dry-run]
-  scripts/ps-issue.sh --title TEXT --label bug|enhancement \\
+  scripts/ps-issue.sh --title TEXT --label LABEL [--label LABEL] \\
       (--body TEXT | --body-file PATH) [--dry-run] [--confirm]
+
+LABEL is one of: ${ALLOWED_LABELS}
+--label may be repeated or comma-separated (e.g. --label dogfood,enhancement).
 
 Always files on ${REPO}. Never consumer origin.
 Create requires --confirm after a human yes in this turn, or a TTY y/N.
@@ -30,9 +33,35 @@ HAVE_SEARCH=0
 TITLE=""
 BODY=""
 BODY_FILE=""
-LABEL=""
+LABELS=()
 DRY_RUN=0
 CONFIRM=0
+
+die() {
+  echo "ps-issue: $*" >&2
+  exit 1
+}
+
+is_allowed_label() {
+  local cand="$1" tok
+  for tok in $ALLOWED_LABELS; do
+    [[ "$cand" == "$tok" ]] && return 0
+  done
+  return 1
+}
+
+add_labels() {
+  local raw="$1" part existing
+  raw="${raw//,/ }"
+  for part in $raw; do
+    [[ -n "$part" ]] || continue
+    is_allowed_label "$part" || die "--label must be one of: ${ALLOWED_LABELS}"
+    for existing in "${LABELS[@]+"${LABELS[@]}"}"; do
+      [[ "$existing" == "$part" ]] && continue 2
+    done
+    LABELS+=("$part")
+  done
+}
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -49,18 +78,13 @@ while [[ $# -gt 0 ]]; do
     --title) TITLE="${2:-}"; shift 2 ;;
     --body) BODY="${2:-}"; shift 2 ;;
     --body-file) BODY_FILE="${2:-}"; shift 2 ;;
-    --label) LABEL="${2:-}"; shift 2 ;;
+    --label) add_labels "${2:-}"; shift 2 ;;
     --dry-run) DRY_RUN=1; shift ;;
     --confirm) CONFIRM=1; shift ;;
     -h|--help) usage; exit 0 ;;
     *) echo "unknown arg: $1" >&2; usage; exit 2 ;;
   esac
 done
-
-die() {
-  echo "ps-issue: $*" >&2
-  exit 1
-}
 
 is_child() {
   [[ -n "${PS_CHILD:-}" || -n "${OF_CHILD:-}" ]]
@@ -145,8 +169,8 @@ if [[ "$HAVE_SEARCH" -eq 1 ]]; then
   exit 0
 fi
 
-[[ -n "$TITLE" ]] || die "create needs --title, --body or --body-file, and --label ${LABELS} (or --search to list)"
-[[ "$LABEL" == "bug" || "$LABEL" == "enhancement" ]] || die "--label must be bug or enhancement"
+[[ -n "$TITLE" ]] || die "create needs --title, --body or --body-file, and --label (${ALLOWED_LABELS}) (or --search to list)"
+[[ ${#LABELS[@]} -gt 0 ]] || die "create needs at least one --label (${ALLOWED_LABELS})"
 if [[ -n "$BODY_FILE" && -n "$BODY" ]]; then
   die "--body and --body-file cannot both be set"
 fi
@@ -171,7 +195,10 @@ fi
 BODY="$(redact "$BODY")"
 check_body_size --body "$BODY"
 
-argv=(gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY" --label "$LABEL")
+argv=(gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY")
+for label in "${LABELS[@]}"; do
+  argv+=(--label "$label")
+done
 
 if [[ "$DRY_RUN" -eq 1 ]]; then
   preview "${argv[@]}"

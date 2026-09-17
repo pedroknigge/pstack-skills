@@ -1,6 +1,6 @@
 ---
 name: pstack
-description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
   version: "0.0.1"
@@ -25,7 +25,7 @@ Use `/pstack` or `/ps` when:
 
 If the user already named a leaf (`/ps-how`, `/ps-poteto-mode`, `/ps-setup-pstack`, a principle, …), run that leaf. Do not re-route through this parent first.
 
-If the request is pack telemetry (“report this to pstack”, “sugerí mejora al skill”, “file a pstack issue”), skip the catalog and follow [references/issue.md](references/issue.md). If they asked for a report / HTML / dashboard, follow **HTML reports** below.
+If the request is pack telemetry (“report this to pstack”, “sugerí mejora al skill”, “file a pstack issue”), skip the catalog and follow [references/issue.md](references/issue.md). If they said “dogfood”, “blindtest”, or “probar pstack en un repo random”, skip the catalog and follow [references/dogfood.md](references/dogfood.md). If they asked for a report / HTML / dashboard, follow **HTML reports** below.
 
 ## Session announce
 
@@ -182,9 +182,21 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 
 Read the chosen leaf's `SKILL.md` (and any `references/` it names) before you act. Preserve poteto/pstack meaning. Do not substitute a different verb or invent a new skill.
 
+## Dogfood / blindtest
+
+Triggers: “dogfood”, “blindtest”, “probar pstack en un repo random”.
+
+Full procedure: [references/dogfood.md](references/dogfood.md). Cycle (pack repo): [`docs/dogfood-cycle.md`](../../docs/dogfood-cycle.md).
+
+1. Pick or accept a **public** repo you do not know. Not this pack. Not a private tree.
+2. Exercise a small set of `ps-*` / this parent **cold**. Read each `SKILL.md` in full. Do not push or ticket the target.
+3. Summarize pack friction (missing refs, wrong routing, stale descriptions).
+4. Offer to file backlog via the issue module (HITL). Labels: `dogfood`, `blindtest`, plus `bug` or `enhancement`.
+5. Implementing that backlog, bumping `VERSION` (`0.0.1` … `0.0.99` then `0.1.0`), and dogfooding again is the release loop.
+
 ## Report a defect or improvement in this pack
 
-Triggers: “report this to pstack”, “file a pstack issue”, “sugerí mejora al skill”, “abre un issue en pstack”.
+Triggers: “report this to pstack”, “file a pstack issue”, “sugerí mejora al skill”, “abre un issue en pstack”. Dogfood findings use the same desk.
 
 Full procedure: [references/issue.md](references/issue.md). Wrapper: `scripts/ps-issue.sh` (also `skills/pstack/scripts/ps-issue.sh`).
 
@@ -192,7 +204,7 @@ Full procedure: [references/issue.md](references/issue.md). Wrapper: `scripts/ps
 - Search open issues first (`--search`). Skip duplicates.
 - **Never** create a GitHub issue without explicit human confirmation **in the same turn**.
 - `--dry-run` is not HITL. Children (`PS_CHILD` / `OF_CHILD`) draft only (`--dry-run` or scratch `ISSUE.md`). The leader asks, then `--confirm`.
-- Labels: `bug` | `enhancement`. No secrets, tokens, or private transcripts in bodies.
+- Labels: `bug`, `enhancement`, `dogfood`, `blindtest` (repeat `--label` or comma-separate). No secrets, tokens, or private transcripts in bodies.
 
 ## HTML reports
 

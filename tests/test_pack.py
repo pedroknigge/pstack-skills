@@ -61,6 +61,9 @@ class VersionLock(unittest.TestCase):
         self.assertTrue(desc.group(1).startswith("v0.0.1"))
         self.assertIn("report this to pstack", desc.group(1))
         self.assertIn("sugerí mejora al skill", desc.group(1))
+        self.assertIn("dogfood", desc.group(1))
+        self.assertIn("blindtest", desc.group(1))
+        self.assertIn("probar pstack en un repo random", desc.group(1))
         self.assertIn("HTML", desc.group(1))
 
 
@@ -111,7 +114,7 @@ class IssueModule(unittest.TestCase):
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("PS_CHILD", r.stderr)
 
-    def test_label_must_be_bug_or_enhancement(self) -> None:
+    def test_label_must_be_allowlisted(self) -> None:
         r = run(
             [
                 str(SCRIPTS / "ps-issue.sh"),
@@ -125,7 +128,25 @@ class IssueModule(unittest.TestCase):
             ]
         )
         self.assertNotEqual(r.returncode, 0)
-        self.assertIn("bug or enhancement", r.stderr)
+        self.assertIn("dogfood", r.stderr)
+
+    def test_dogfood_labels_dry_run(self) -> None:
+        r = run(
+            [
+                str(SCRIPTS / "ps-issue.sh"),
+                "--title",
+                "router missed a leaf",
+                "--label",
+                "dogfood,blindtest,enhancement",
+                "--body",
+                "Public friction only.",
+                "--dry-run",
+            ]
+        )
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("--label dogfood", r.stdout)
+        self.assertIn("--label blindtest", r.stdout)
+        self.assertIn("--label enhancement", r.stdout)
 
 
 class Bridges(unittest.TestCase):
@@ -172,6 +193,30 @@ class Bridges(unittest.TestCase):
             r = run([str(SCRIPTS / "ps-detect-siblings.sh"), tmp])
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("ArkGate: detected", r.stdout)
+
+
+class DogfoodCycle(unittest.TestCase):
+    def test_docs_and_eval_stub(self) -> None:
+        cycle = (ROOT / "docs" / "dogfood-cycle.md").read_text(encoding="utf-8")
+        self.assertIn("pedroknigge/pstack-skills", cycle)
+        self.assertIn("blindtest", cycle)
+        parent = (PARENT_REFS / "dogfood.md").read_text(encoding="utf-8")
+        self.assertIn("probar pstack en un repo random", parent)
+        self.assertIn("HITL", parent)
+        evals = (ROOT / "evals" / "README.md").read_text(encoding="utf-8")
+        self.assertIn("Planted", evals)
+        self.assertIn("Live dogfood", evals)
+        stub = (ROOT / "evals" / "fixtures" / "live-dogfood.stub.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("public third-party", stub)
+        self.assertIn("private", stub)
+
+    def test_parent_routes_dogfood(self) -> None:
+        text = (SKILLS / "pstack" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("references/dogfood.md", text)
+        self.assertIn("dogfood", text.lower())
+        self.assertIn("blindtest", text.lower())
 
 
 class HtmlRenderer(unittest.TestCase):

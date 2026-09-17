@@ -71,11 +71,13 @@ The parent skill owns the HITL loop ([skills/pstack/references/issue.md](skills/
 
 ```bash
 scripts/ps-issue.sh --search "short query"
-scripts/ps-issue.sh --title "…" --label bug|enhancement \
+scripts/ps-issue.sh --title "…" --label dogfood,enhancement \
   --body "…" --dry-run
 # after an explicit human yes in the same turn:
 scripts/ps-issue.sh --title "…" --label enhancement --body-file ISSUE.md --confirm
 ```
+
+Suggested labels: `dogfood`, `blindtest`, `bug`, `enhancement`. `--label` may be repeated or comma-separated.
 
 - Target is **always** [`pedroknigge/pstack-skills`](https://github.com/pedroknigge/pstack-skills). Never the consumer working-tree origin.
 - Never create a GitHub issue without explicit human confirmation in the same turn. `--dry-run` is not HITL.
@@ -83,6 +85,18 @@ scripts/ps-issue.sh --title "…" --label enhancement --body-file ISSUE.md --con
 - Child / subagent sessions draft only (`--dry-run` or scratch `ISSUE.md`). The leader asks, then submits.
 
 After `npx skills add` / `./install.sh`, the same scripts live under `…/skills/pstack/scripts/`.
+
+## Dogfood → backlog → release
+
+Periodic **blindtest** on a public repo you do not know. Findings become backlog issues on this skill repo. Implementing that backlog is how the next release gets tested. Then dogfood again.
+
+1. Pick a public repo you do not know (or pass a URL).
+2. Run relevant `ps-*` / parent `pstack` skills **cold**.
+3. Capture friction, missing refs, wrong routing, stale descriptions.
+4. File backlog via the issue module (HITL) with labels `dogfood`, `blindtest`, `bug`, `enhancement`.
+5. Implement → bump `VERSION` (`0.0.1` … `0.0.99` then `0.1.0`) → re-dogfood.
+
+Parent triggers: “dogfood”, “blindtest”, “probar pstack en un repo random”. Procedure: [`docs/dogfood-cycle.md`](docs/dogfood-cycle.md) and [`skills/pstack/references/dogfood.md`](skills/pstack/references/dogfood.md). Evals scaffold (planted vs live): [`evals/README.md`](evals/README.md).
 
 ## Sibling bridges (sensor, not fusion)
 
@@ -183,6 +197,8 @@ pstack-skills/
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
+├── docs/                   # dogfood-cycle.md
+├── evals/                  # planted vs live dogfood scaffold
 ├── scripts/                # ps-issue.sh, render-report.py, ps-detect-siblings.sh
 └── skills/
     ├── pstack/
