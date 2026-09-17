@@ -212,6 +212,19 @@ class DogfoodCycle(unittest.TestCase):
         self.assertIn("public third-party", stub)
         self.assertIn("private", stub)
 
+    def test_release_checklist(self) -> None:
+        path = ROOT / "docs" / "release-checklist.md"
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("npx skills add pedroknigge/pstack-skills -g -y", text)
+        self.assertIn("VERSION", text)
+        self.assertIn("M5", text)
+        self.assertIn("M1", text)
+        self.assertIn("Do **not** SSH", text)
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("docs/release-checklist.md", readme)
+        changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+        self.assertIn("release-checklist.md", changelog)
+
     def test_parent_routes_dogfood(self) -> None:
         text = (SKILLS / "pstack" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("references/dogfood.md", text)

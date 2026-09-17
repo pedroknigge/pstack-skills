@@ -12,7 +12,7 @@ The parent router runs the pass when you say **dogfood**, **blindtest**, or **pr
 2. **Run cold.** Relevant `ps-*` leaves and/or parent `pstack`. Read each chosen `SKILL.md` in full. Do not invent a new verb. Do not push to the target. Do not file issues on the target.
 3. **Capture friction.** Missing refs, wrong routing, stale descriptions, steps that do not work as written.
 4. **File backlog (HITL).** `scripts/ps-issue.sh` → always `pedroknigge/pstack-skills`. Search first. Skip duplicates. Confirm in the same turn. Suggested labels: `dogfood`, `blindtest`, `bug`, `enhancement`.
-5. **Implement** the backlog on this pack. Bump `VERSION` with every `description` prefix and `metadata.version` (patch `0.0.1` … `0.0.99`, then `0.1.0`).
+5. **Implement** the backlog on this pack. Bump `VERSION` with every `description` prefix and `metadata.version` (patch `0.0.1` … `0.0.99`, then `0.1.0`). Then [release-checklist.md](release-checklist.md): merge, and globally install on whichever Macs are on (M5 and/or M1).
 6. **Re-dogfood** on a fresh public repo.
 
 ## Labels

@@ -23,6 +23,7 @@ This GitHub repo is **Pedro Knigge's public port**. It is **not** published by p
 - Sibling bridges (sensor, not fusion) under `skills/pstack/references/`: ArkGate, Orderfield, documentation-manager (reciprocal; live names `ps-architect` / `ps-figure-it-out` / parent `pstack`), vibe-proof-auditor. Parent announces `ArkGate|Orderfield|Docs|Vibe-proof: none|detected`. Optional `scripts/ps-detect-siblings.sh`.
 - Stdlib HTML renderer `scripts/render-report.py` (also `skills/pstack/scripts/`). Parent and `ps-show-me-your-work` emit an `.html` twin when the user asks for a report / HTML / dashboard. No invented scores.
 - Dogfood → backlog → release cycle: `docs/dogfood-cycle.md`, parent triggers (`dogfood` / `blindtest` / `probar pstack en un repo random`), `evals/` planted-vs-live stub. Issue labels: `dogfood`, `blindtest`, `bug`, `enhancement` (repeatable `--label`).
+- Per-release global install checklist: `docs/release-checklist.md` — after tag/merge, `npx skills add pedroknigge/pstack-skills -g -y` on whichever of Pedro's Macs are on (M5 and/or M1). Confirm `description` prefix matches `VERSION`. No cloud-agent SSH.
 
 ### Notes
 

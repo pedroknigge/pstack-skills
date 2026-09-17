@@ -24,7 +24,7 @@ pstack-skills/                 ← this git root
 ├── VERSION                    ← 0.0.1
 ├── CHANGELOG.md
 ├── install.sh                 ← copies skills/* into agent skill dirs
-├── docs/                      ← dogfood-cycle.md
+├── docs/                      ← dogfood-cycle.md, release-checklist.md
 ├── evals/                     ← planted vs live dogfood scaffold
 ├── scripts/                   ← ps-issue.sh, render-report.py, detect
 └── skills/
@@ -50,6 +50,7 @@ pstack-skills/                 ← this git root
 10. Sibling bridges under `skills/pstack/references/` are sensors: detect + HITL-propose. Do not vendor ArkGate, Orderfield, documentation-manager, or vibe-proof-auditor bodies. Announce `ArkGate|Orderfield|Docs|Vibe-proof: none|detected`.
 11. HTML reports: `scripts/render-report.py` styles existing markdown/TSV. Do not invent scores. Emit an `.html` twin when the user asks for a report / HTML / dashboard and Python stdlib is available.
 12. Dogfood / blindtest is a parent-router pass, not a new leaf. Public third-party repos only. Backlog via the issue module (HITL) with labels `dogfood`, `blindtest`, `bug`, `enhancement`. Then implement, bump `VERSION`, dogfood again. See [docs/dogfood-cycle.md](docs/dogfood-cycle.md).
+13. After a release, follow [docs/release-checklist.md](docs/release-checklist.md). Global install on powered-on Macs (M5 and/or M1) is a local step for Pedro or Pstacky. Do **not** SSH to those machines from a cloud agent.
 
 ## How to use the pack (when invoked)
 
@@ -66,6 +67,7 @@ pstack-skills/                 ← this git root
 - Parent router: [skills/pstack/SKILL.md](skills/pstack/SKILL.md)
 - Issue HITL: [skills/pstack/references/issue.md](skills/pstack/references/issue.md)
 - Dogfood cycle: [docs/dogfood-cycle.md](docs/dogfood-cycle.md)
+- Release checklist: [docs/release-checklist.md](docs/release-checklist.md)
 - Bridges: [skills/pstack/references/](skills/pstack/references/)
 - Install: [README.md](README.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)

@@ -46,6 +46,8 @@ npx skills update pstack-skills -g -y
 
 Then re-run `./install.sh` if you use the classic installer paths.
 
+After each **release**, Pedro (or Pstacky on a Mac that is already on) reinstalls globally on whichever machines are powered — M5 and/or M1. Cloud agents do not SSH. Checklist: [`docs/release-checklist.md`](docs/release-checklist.md).
+
 ### One-off without installing
 
 ```bash
@@ -94,9 +96,9 @@ Periodic **blindtest** on a public repo you do not know. Findings become backlog
 2. Run relevant `ps-*` / parent `pstack` skills **cold**.
 3. Capture friction, missing refs, wrong routing, stale descriptions.
 4. File backlog via the issue module (HITL) with labels `dogfood`, `blindtest`, `bug`, `enhancement`.
-5. Implement → bump `VERSION` (`0.0.1` … `0.0.99` then `0.1.0`) → re-dogfood.
+5. Implement → bump `VERSION` (`0.0.1` … `0.0.99` then `0.1.0`) → [release checklist](docs/release-checklist.md) (global install on powered-on Macs) → re-dogfood.
 
-Parent triggers: “dogfood”, “blindtest”, “probar pstack en un repo random”. Procedure: [`docs/dogfood-cycle.md`](docs/dogfood-cycle.md) and [`skills/pstack/references/dogfood.md`](skills/pstack/references/dogfood.md). Evals scaffold (planted vs live): [`evals/README.md`](evals/README.md).
+Parent triggers: “dogfood”, “blindtest”, “probar pstack en un repo random”. Procedure: [`docs/dogfood-cycle.md`](docs/dogfood-cycle.md) and [`skills/pstack/references/dogfood.md`](skills/pstack/references/dogfood.md). Evals scaffold (planted vs live): [`evals/README.md`](evals/README.md). Post-release Macs: [`docs/release-checklist.md`](docs/release-checklist.md).
 
 ## Sibling bridges (sensor, not fusion)
 
@@ -197,7 +199,7 @@ pstack-skills/
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
-├── docs/                   # dogfood-cycle.md
+├── docs/                   # dogfood-cycle.md, release-checklist.md
 ├── evals/                  # planted vs live dogfood scaffold
 ├── scripts/                # ps-issue.sh, render-report.py, ps-detect-siblings.sh
 └── skills/
@@ -223,7 +225,7 @@ Packaging for this repo is MIT, Copyright (c) 2026 Pedro Knigge. See [LICENSE](L
 
 ## Version
 
-`VERSION` is `0.0.1`. Every skill `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"`. Later cuts: patch bumps `0.0.1` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md).
+`VERSION` is `0.0.1`. Every skill `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"`. Later cuts: patch bumps `0.0.1` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
 
 ## License
 
