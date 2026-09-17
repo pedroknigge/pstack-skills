@@ -63,6 +63,51 @@ If you already named a leaf, run that leaf. Do not bounce through the parent fir
 
 Built-ins this pack does **not** ship: Cursor `/create-skill`, and `cursor-team-kit` (`/deslop`, `control-cli`, `control-ui`). `poteto-agent` and Comment Sicko are Cursor plugin subagents, not folders here.
 
+## Report a defect or improvement in this pack
+
+Triggers: “report this to pstack”, “file a pstack issue”, “sugerí mejora al skill”, “abre un issue en pstack”.
+
+The parent skill owns the HITL loop ([skills/pstack/references/issue.md](skills/pstack/references/issue.md)). Wrapper:
+
+```bash
+scripts/ps-issue.sh --search "short query"
+scripts/ps-issue.sh --title "…" --label bug|enhancement \
+  --body "…" --dry-run
+# after an explicit human yes in the same turn:
+scripts/ps-issue.sh --title "…" --label enhancement --body-file ISSUE.md --confirm
+```
+
+- Target is **always** [`pedroknigge/pstack-skills`](https://github.com/pedroknigge/pstack-skills). Never the consumer working-tree origin.
+- Never create a GitHub issue without explicit human confirmation in the same turn. `--dry-run` is not HITL.
+- Search open issues first; skip duplicates. No secrets, tokens, or private transcripts in bodies.
+- Child / subagent sessions draft only (`--dry-run` or scratch `ISSUE.md`). The leader asks, then submits.
+
+After `npx skills add` / `./install.sh`, the same scripts live under `…/skills/pstack/scripts/`.
+
+## Sibling bridges (sensor, not fusion)
+
+Parent `/pstack` announces when a sibling is in play (`ArkGate: none|detected`, `Orderfield: …`, `Docs: …`, `Vibe-proof: …`). Bridges **detect + HITL-propose**. They do not vendor sibling bodies or silent auto-run.
+
+| Sibling | Note | Repo |
+|---|---|---|
+| ArkGate (+ addons) | Detect `ark.config.json` / ark-check / ark skills. Fold with HITL. Do not rewrite `ark.config.json`. | [arkgate](https://github.com/pedroknigge/arkgate) |
+| Orderfield | Pairing with `of` / `.orderfield` only. Self-telemetry stays on orderfield. Never consumer-origin issues. | [orderfield](https://github.com/pedroknigge/orderfield) |
+| documentation-manager | Docs sibling. Reciprocal to their `pstack-bridge.md`. Live names here: `ps-architect` / `ps-figure-it-out` / parent `pstack`. | [documentation-manager](https://github.com/pedroknigge/documentation-manager) |
+| vibe-proof-auditor | Auditor sibling. Propose/fold findings. Do not copy checklist or scoring. | [vibe-proof-auditor](https://github.com/pedroknigge/vibe-proof-auditor) |
+
+Notes live in [`skills/pstack/references/`](skills/pstack/references/). Optional sensor: `scripts/ps-detect-siblings.sh`.
+
+## HTML reports
+
+When you ask for a **report**, **HTML**, or **dashboard**, the parent (and `ps-show-me-your-work`) write structured markdown and, if Python stdlib is available, an `.html` twin beside it:
+
+```bash
+python3 scripts/render-report.py path/to/report.md
+python3 scripts/render-report.py decisions.tsv   # show-me-your-work log
+```
+
+Open the HTML in a browser (`open report.html`, `xdg-open report.html`, or drop the file on Chrome). The renderer is offline, stdlib-only, and styles what the markdown already contains. It does not invent scores. After install: `…/skills/pstack/scripts/render-report.py`.
+
 ## Catalog
 
 One-line when-to-use is taken from each leaf's description. Full routing notes live in [`skills/pstack/SKILL.md`](skills/pstack/SKILL.md).
@@ -138,8 +183,12 @@ pstack-skills/
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
+├── scripts/                # ps-issue.sh, render-report.py, ps-detect-siblings.sh
 └── skills/
-    ├── pstack/SKILL.md     # parent router
+    ├── pstack/
+    │   ├── SKILL.md        # parent router
+    │   ├── references/     # issue HITL + sibling bridges
+    │   └── scripts/        # same helpers, shipped with the parent
     ├── ps-poteto-mode/
     ├── ps-how/
     ├── ps-why/

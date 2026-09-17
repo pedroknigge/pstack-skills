@@ -1,6 +1,6 @@
 ---
 name: pstack
-description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
   version: "0.0.1"
@@ -24,6 +24,35 @@ Use `/pstack` or `/ps` when:
 - a request names several jobs (understand, design, verify, write) and you need an order
 
 If the user already named a leaf (`/ps-how`, `/ps-poteto-mode`, `/ps-setup-pstack`, a principle, …), run that leaf. Do not re-route through this parent first.
+
+If the request is pack telemetry (“report this to pstack”, “sugerí mejora al skill”, “file a pstack issue”), skip the catalog and follow [references/issue.md](references/issue.md). If they asked for a report / HTML / dashboard, follow **HTML reports** below.
+
+## Session announce
+
+When this parent (or a leaf that needs siblings) runs, print sensor lines. Do not invent green. Missing stays Missing.
+
+```text
+ArkGate: none|detected
+Orderfield: none|detected
+Docs: none|detected
+Vibe-proof: none|detected
+```
+
+`scripts/ps-detect-siblings.sh` (also `skills/pstack/scripts/ps-detect-siblings.sh`) is the optional sensor. If a line is `detected` **and** the work is relevant, read the matching bridge and HITL-propose. **No silent auto-run.** Do not vendor sibling bodies.
+
+| Bridge | Note |
+|---|---|
+| [references/arkgate-bridge.md](references/arkgate-bridge.md) | Ark signals (`ark.config.json`, ark-check, ark skills). Fold with HITL. Do not rewrite `ark.config.json`. |
+| [references/orderfield-bridge.md](references/orderfield-bridge.md) | `of` / `.orderfield` pairing only. Never consumer-origin issues. Orderfield self-telemetry stays on orderfield. |
+| [references/documentation-manager-bridge.md](references/documentation-manager-bridge.md) | Docs sibling. Reciprocal to their `pstack-bridge.md`. Live names here: `ps-architect` / `ps-figure-it-out` / parent `pstack`. |
+| [references/vibe-proof-bridge.md](references/vibe-proof-bridge.md) | Auditor sibling. Propose/fold findings. Do not copy checklist or scoring. |
+
+### Related skills
+
+- [ArkGate](https://github.com/pedroknigge/arkgate) (+ addons) — architecture-contract sibling
+- [Orderfield](https://github.com/pedroknigge/orderfield) — field kernel / `of` CLI
+- [documentation-manager](https://github.com/pedroknigge/documentation-manager) — docs sibling
+- [vibe-proof-auditor](https://github.com/pedroknigge/vibe-proof-auditor) — auditor sibling
 
 ## How to pick a child
 
@@ -152,3 +181,27 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 ## After you pick
 
 Read the chosen leaf's `SKILL.md` (and any `references/` it names) before you act. Preserve poteto/pstack meaning. Do not substitute a different verb or invent a new skill.
+
+## Report a defect or improvement in this pack
+
+Triggers: “report this to pstack”, “file a pstack issue”, “sugerí mejora al skill”, “abre un issue en pstack”.
+
+Full procedure: [references/issue.md](references/issue.md). Wrapper: `scripts/ps-issue.sh` (also `skills/pstack/scripts/ps-issue.sh`).
+
+- Target **always** `pedroknigge/pstack-skills`. Never consumer `origin`.
+- Search open issues first (`--search`). Skip duplicates.
+- **Never** create a GitHub issue without explicit human confirmation **in the same turn**.
+- `--dry-run` is not HITL. Children (`PS_CHILD` / `OF_CHILD`) draft only (`--dry-run` or scratch `ISSUE.md`). The leader asks, then `--confirm`.
+- Labels: `bug` | `enhancement`. No secrets, tokens, or private transcripts in bodies.
+
+## HTML reports
+
+When the user asks for a **report**, **HTML**, or **dashboard**, write structured markdown (parent session summary, or the `ps-show-me-your-work` trail) and, if the host can run Python stdlib, emit an `.html` twin beside it:
+
+```bash
+python3 scripts/render-report.py path/to/report.md
+# TSV decision logs work too:
+python3 scripts/render-report.py decisions.tsv
+```
+
+After install the same renderer is `…/skills/pstack/scripts/render-report.py`. Open the HTML in a browser (`open`, `xdg-open`, or drop the file on Chrome). The renderer styles what the markdown already contains. It does not invent scores. If `python3` is missing, skip HTML and say so.

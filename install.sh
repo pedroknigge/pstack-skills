@@ -23,8 +23,9 @@ Usage: ./install.sh [--global|--project] [--uninstall] [--help]
   --project    Install under the current workspace
   --uninstall  Remove installed copies from the chosen scope
 
-Copies every folder in skills/ (pstack parent + ps-* leaves) into each
-detected agent skill directory. Idempotent: destination folders are replaced.
+Copies every folder in skills/ (pstack parent + ps-* leaves, including
+parent references/ and scripts/) into each detected agent skill directory.
+Idempotent: destination folders are replaced.
 EOF
 }
 

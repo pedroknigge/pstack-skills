@@ -24,8 +24,11 @@ pstack-skills/                 ← this git root
 ├── VERSION                    ← 0.0.1
 ├── CHANGELOG.md
 ├── install.sh                 ← copies skills/* into agent skill dirs
+├── scripts/                   ← ps-issue.sh, render-report.py, detect
 └── skills/
     ├── pstack/SKILL.md        ← parent router (/pstack, /ps)
+    ├── pstack/references/     ← issue HITL + sibling bridges
+    ├── pstack/scripts/        ← same helpers (npx skills add ships these)
     └── ps-<slug>/             ← one Desktop leaf each
 ```
 
@@ -41,6 +44,9 @@ pstack-skills/                 ← this git root
 6. Role labels in `ps-setup-pstack` (`how explorer`, `why synthesizer`, …) are config keys, not skill invokes — leave them.
 7. Keep `README.md`, `install.sh`, `VERSION`, and `CHANGELOG.md` aligned when the pack surface changes. Bumping the pack version means `VERSION`, every `description` prefix, every `metadata.version`, changelog, and README together.
 8. Do not force-push `main`. Do not publish to a skills registry unless the user asks.
+9. Pack self-telemetry uses `scripts/ps-issue.sh` → **always** `pedroknigge/pstack-skills`. Never consumer origin. Never `gh issue create` without explicit human confirmation in the same turn. Children (`PS_CHILD` / `OF_CHILD`) draft only.
+10. Sibling bridges under `skills/pstack/references/` are sensors: detect + HITL-propose. Do not vendor ArkGate, Orderfield, documentation-manager, or vibe-proof-auditor bodies. Announce `ArkGate|Orderfield|Docs|Vibe-proof: none|detected`.
+11. HTML reports: `scripts/render-report.py` styles existing markdown/TSV. Do not invent scores. Emit an `.html` twin when the user asks for a report / HTML / dashboard and Python stdlib is available.
 
 ## How to use the pack (when invoked)
 
@@ -48,10 +54,14 @@ pstack-skills/                 ← this git root
 - User names a leaf (`/ps-poteto-mode`, `/ps-how`, a principle, …) → read that leaf's `SKILL.md` in full and follow it.
 - Default for non-trivial work → `ps-poteto-mode`.
 - Configure models → `ps-setup-pstack`.
+- “report this to pstack” / “sugerí mejora al skill” / “file a pstack issue” → [skills/pstack/references/issue.md](skills/pstack/references/issue.md), not a new leaf.
+- Report / HTML / dashboard → write markdown (or the `ps-show-me-your-work` TSV), then `scripts/render-report.py`.
 
 ## Navigation
 
 - Parent router: [skills/pstack/SKILL.md](skills/pstack/SKILL.md)
+- Issue HITL: [skills/pstack/references/issue.md](skills/pstack/references/issue.md)
+- Bridges: [skills/pstack/references/](skills/pstack/references/)
 - Install: [README.md](README.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
 

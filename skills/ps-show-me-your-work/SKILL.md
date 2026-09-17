@@ -81,6 +81,18 @@ Every reply for a run that produced a trail ends with an "Attention" section. Le
 
 Read top to bottom, follow the evidence pointers, spot-check. GitHub renders a committed TSV as a table. `column -s$'\t' -t decisions.tsv` renders it in a terminal.
 
+## HTML twin
+
+When the user asks for a report, HTML, or dashboard — or you are handing back a trail they asked to see as a report — write an `.html` twin beside the TSV (or a short markdown wrap) if the host can run Python stdlib:
+
+```bash
+python3 ../pstack/scripts/render-report.py decisions.tsv
+# pack root / this repo:
+python3 scripts/render-report.py decisions.tsv
+```
+
+The renderer styles the log already on disk. It does not invent scores. If `python3` is missing, skip HTML and say so. The TSV stays the canonical trail.
+
 ## Composing this skill
 
 Other skills route their audit trail here instead of inventing one. Reference it by name and let it own the format. Don't restate the columns.
