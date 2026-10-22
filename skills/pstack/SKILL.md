@@ -1,9 +1,9 @@
 ---
 name: pstack
-description: "v0.0.1. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.2. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   author: pedroknigge
 ---
 
@@ -177,6 +177,21 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 | `ps-principle-guard-the-context-window` | Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning |
 | `ps-principle-never-block-on-the-human` | Apply when tempted to ask 'should I do X?' on reversible work |
 | `ps-principle-encode-lessons-in-structure` | Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction |
+
+### Added in 0.0.2 (upstream pstack 0.15.30)
+
+| Skill | When to use |
+|---|---|
+| `ps-benchmark-checklist` | Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. |
+| `ps-correct` | Find the mistakes agents keep repeating in this repo and make each one impossible. |
+| `ps-create-formal-verification-skill` | Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. |
+| `ps-in-your-own-words` | Restate in your own words what you think the user's goals are and what problem they're trying to solve. |
+| `ps-ketchup` | Catch the user up on what changed in this chat since their last message, in plain words and small visuals. |
+| `ps-maintain-formal-verification-skill` | Bring a project's formal verification back in line with the code after the code changes: find the commits that touched verified code, update the model, harness, or properties to describe the code as it is now, rerun, and say whether each failure is drift in the verification or a bug in the code. |
+| `ps-poteto-help` | Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. |
+| `ps-principle-explain-the-number` | Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. |
+| `ps-sharpen` | Make a task deeper, not bigger, then rewrite the prompt. |
+| `ps-statechart` | Draw what an app's user sees as a Mermaid statechart from a TLA+ model. |
 
 ## After you pick
 

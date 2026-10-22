@@ -1,10 +1,10 @@
 ---
 name: ps-principle-outcome-oriented-execution
-description: "v0.0.1. Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.2. Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   author: pedroknigge
 ---
 
@@ -17,7 +17,6 @@ Optimize for the intended, verifiable end state rather than preserving smooth in
 **Core rule:**
 - Prioritize end-state integrity over transitional stability
 - Intermediate breakage is acceptable when it is planned, scoped, and reversible
-- Always run final verification before declaring done
 
 **Guardrails:**
 - Use this for planned rewrites and migrations with explicit phase boundaries

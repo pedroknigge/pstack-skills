@@ -1,10 +1,10 @@
 ---
 name: ps-principle-separate-before-serializing-shared-state
-description: "v0.0.1. Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.2. Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   author: pedroknigge
 ---
 
