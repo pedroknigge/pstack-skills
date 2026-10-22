@@ -6,6 +6,20 @@ Versioning: patch bumps `0.0.1` → `0.0.99`, then `0.1.0`.
 
 ## [Unreleased]
 
+## [0.0.2] — 2026-10-22
+
+Sync with the official Cursor pstack plugin **0.15.30** (`cursor/plugins`, folder `pstack/`, commit `4ec7ffa`, 2026-10-22). Upstream author: Lauren Tan (poteto), MIT; see `LICENSE-UPSTREAM`.
+
+### Added
+
+- 10 new leaves from upstream: `ps-benchmark-checklist`, `ps-correct`, `ps-create-formal-verification-skill`, `ps-in-your-own-words`, `ps-ketchup`, `ps-maintain-formal-verification-skill`, `ps-poteto-help`, `ps-principle-explain-the-number`, `ps-sharpen`, `ps-statechart`. Pack is now router + 57 leaves.
+- `LICENSE-UPSTREAM` with the upstream MIT notice.
+
+### Changed
+
+- All 47 existing leaves re-ported from upstream 0.15.30 (bodies and `references/`), keeping pack conventions: `ps-` folder/name, `v0.0.2` description prefix, `metadata.version`, `ps-*` cross-refs.
+- Router catalog, README skill table, AGENTS.md and tests updated for 0.0.2.
+
 ## [0.0.1] — 2026-09-17
 
 First public port of the Cursor pstack plugin skills as an installable Agent Skills pack.

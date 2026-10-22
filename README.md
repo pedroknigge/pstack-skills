@@ -6,7 +6,7 @@
 npx skills add pedroknigge/pstack-skills -g -y
 ```
 
-Version **0.0.1**. MIT. Every `SKILL.md` `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
+Version **0.0.2**. MIT. Every `SKILL.md` `description` starts with `v0.0.2` and `metadata.version` is `"0.0.2"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
 
 pstack is poteto's answer to slop-heavy agent output: less code, higher quality, fearless parallelism. The Cursor plugin is the upstream origin. This pack makes those same skill bodies installable via the [Skills CLI](https://github.com/vercel-labs/skills) (`npx skills add`) and `./install.sh`.
 
@@ -173,6 +173,16 @@ One-line when-to-use is taken from each leaf's description. Full routing notes l
 |---|---|
 | [`ps-unslop`](skills/ps-unslop/SKILL.md) | Cut AI tells from writing. |
 | [`ps-bro`](skills/ps-bro/SKILL.md) | Restate the last message in plain language. |
+| [`ps-benchmark-checklist`](skills/ps-benchmark-checklist/SKILL.md) | Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. |
+| [`ps-correct`](skills/ps-correct/SKILL.md) | Find the mistakes agents keep repeating in this repo and make each one impossible. |
+| [`ps-create-formal-verification-skill`](skills/ps-create-formal-verification-skill/SKILL.md) | Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. |
+| [`ps-in-your-own-words`](skills/ps-in-your-own-words/SKILL.md) | Restate in your own words what you think the user's goals are and what problem they're trying to solve. |
+| [`ps-ketchup`](skills/ps-ketchup/SKILL.md) | Catch the user up on what changed in this chat since their last message, in plain words and small visuals. |
+| [`ps-maintain-formal-verification-skill`](skills/ps-maintain-formal-verification-skill/SKILL.md) | Bring a project's formal verification back in line with the code after the code changes: find the commits that touched verified code, update the model, harness, or properties to describe the code as it is now, rerun, and say whether each failure is drift in the verification or a bug in the code. |
+| [`ps-poteto-help`](skills/ps-poteto-help/SKILL.md) | Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. |
+| [`ps-principle-explain-the-number`](skills/ps-principle-explain-the-number/SKILL.md) | Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. |
+| [`ps-sharpen`](skills/ps-sharpen/SKILL.md) | Make a task deeper, not bigger, then rewrite the prompt. |
+| [`ps-statechart`](skills/ps-statechart/SKILL.md) | Draw what an app's user sees as a Mermaid statechart from a TLA+ model. |
 | [`ps-technical-writing`](skills/ps-technical-writing/SKILL.md) | Docs, RFCs, READMEs, PR descriptions, commits. |
 | [`ps-no-comments`](skills/ps-no-comments/SKILL.md) | Comment Sicko pass before review. |
 | [`ps-typescript-best-practices`](skills/ps-typescript-best-practices/SKILL.md) | Reading or editing `.ts` / `.tsx`. |
@@ -195,7 +205,7 @@ Each `ps-principle-*` leaf is one rule. `ps-poteto-mode` indexes them and reads 
 pstack-skills/
 ├── README.md
 ├── LICENSE
-├── VERSION                 # 0.0.1
+├── VERSION                 # 0.0.2
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
@@ -225,7 +235,7 @@ Packaging for this repo is MIT, Copyright (c) 2026 Pedro Knigge. See [LICENSE](L
 
 ## Version
 
-`VERSION` is `0.0.1`. Every skill `description` starts with `v0.0.1` and `metadata.version` is `"0.0.1"`. Later cuts: patch bumps `0.0.1` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
+`VERSION` is `0.0.2`. Every skill `description` starts with `v0.0.2` and `metadata.version` is `"0.0.2"`. Later cuts: patch bumps `0.0.2` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
 
 ## License
 
