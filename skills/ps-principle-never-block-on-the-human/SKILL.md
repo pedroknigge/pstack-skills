@@ -1,10 +1,10 @@
 ---
 name: ps-principle-never-block-on-the-human
-description: "v0.0.2. Apply when tempted to ask 'should I do X?' on reversible work. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply when tempted to ask 'should I do X?' on reversible work. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

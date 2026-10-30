@@ -1,10 +1,10 @@
 ---
 name: ps-principle-outcome-oriented-execution
-description: "v0.0.2. Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

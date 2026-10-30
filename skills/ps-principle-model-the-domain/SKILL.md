@@ -1,10 +1,10 @@
 ---
 name: ps-principle-model-the-domain
-description: "v0.0.2. Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

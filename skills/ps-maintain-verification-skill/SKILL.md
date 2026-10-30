@@ -1,10 +1,10 @@
 ---
 name: ps-maintain-verification-skill
-description: "v0.0.2. Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /ps-maintain-verification-skill or \"audit the verify skill\". If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /ps-maintain-verification-skill or \"audit the verify skill\". If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

@@ -1,13 +1,13 @@
 ---
 name: ps-make-bot-ui
-description: "v0.0.2. >- If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. >- If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
   Use when building a custom UI (page, dashboard, buttons) that should wake a
   Grok Bot over a webhook, when the user must provide a webhook sender key, or
   when exposing that UI on Tailscale.
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 # How to make a bot UI

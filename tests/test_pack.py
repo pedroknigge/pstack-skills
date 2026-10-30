@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pack conventions for pstack-skills 0.0.2 — no invented skill verbs."""
+"""Pack conventions for pstack-skills 0.0.3 — no invented skill verbs."""
 
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ def run(argv: list[str], env: dict[str, str] | None = None, cwd: Path | None = N
 
 class VersionLock(unittest.TestCase):
     def test_version_file(self) -> None:
-        self.assertEqual((ROOT / "VERSION").read_text(encoding="utf-8").strip(), "0.0.2")
+        self.assertEqual((ROOT / "VERSION").read_text(encoding="utf-8").strip(), "0.0.3")
 
     def test_every_description_starts_with_v001(self) -> None:
         skills = sorted(SKILLS.glob("*/SKILL.md"))
@@ -50,7 +50,7 @@ class VersionLock(unittest.TestCase):
                     re.M,
                 )
                 desc = folded.group(1) if folded else ""
-            if not desc.startswith("v0.0.2"):
+            if not desc.startswith("v0.0.3"):
                 bad.append(path.relative_to(ROOT).as_posix())
         self.assertEqual(bad, [])
 
@@ -58,7 +58,7 @@ class VersionLock(unittest.TestCase):
         text = (SKILLS / "pstack" / "SKILL.md").read_text(encoding="utf-8")
         desc = re.search(r'^description:\s*"([^"]+)"', text, re.M)
         self.assertIsNotNone(desc)
-        self.assertTrue(desc.group(1).startswith("v0.0.2"))
+        self.assertTrue(desc.group(1).startswith("v0.0.3"))
         self.assertIn("report this to pstack", desc.group(1))
         self.assertIn("sugerí mejora al skill", desc.group(1))
         self.assertIn("dogfood", desc.group(1))

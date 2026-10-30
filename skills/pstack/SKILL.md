@@ -1,9 +1,9 @@
 ---
 name: pstack
-description: "v0.0.2. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 
@@ -192,6 +192,11 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 | `ps-principle-explain-the-number` | Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. |
 | `ps-sharpen` | Make a task deeper, not bigger, then rewrite the prompt. |
 | `ps-statechart` | Draw what an app's user sees as a Mermaid statechart from a TLA+ model. |
+### Added in 0.0.3 (upstream pstack 0.15.36)
+
+| Skill | When to use |
+|---|---|
+| `ps-ketchup-video` | Catch the user up like `ps-ketchup`, with a short subtitled video of slides; waiting calls as text under it. Manual invoke only (`/ps-ketchup-video`). |
 
 ## After you pick
 

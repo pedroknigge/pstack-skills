@@ -1,10 +1,10 @@
 ---
 name: ps-no-comments
-description: "v0.0.2. Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

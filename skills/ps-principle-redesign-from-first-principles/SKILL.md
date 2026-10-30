@@ -1,10 +1,10 @@
 ---
 name: ps-principle-redesign-from-first-principles
-description: "v0.0.2. Apply when integrating a new requirement into an existing design. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply when integrating a new requirement into an existing design. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 
