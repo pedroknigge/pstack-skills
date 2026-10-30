@@ -36,3 +36,10 @@ for n in os.listdir(src):
         t='---\n'+'\n'.join(out)+'\n---\n'+xref(body)
       else: t=xref(t)
       open(p,'w').write(t)
+
+# Keep installs lean: upstream statechart test suite + ~4 MB TLC corpus lives in tests/, not skills/.
+st=os.path.join(dst,'ps-statechart','scripts','test')
+if os.path.isdir(st):
+  out=os.path.join(dst,'..','tests','upstream-ps-statechart','test')
+  if os.path.exists(out): shutil.rmtree(out)
+  os.makedirs(os.path.dirname(out),exist_ok=True); shutil.move(st,out)

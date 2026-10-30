@@ -17,7 +17,7 @@ Sync with the official Cursor pstack plugin **0.15.36** (`cursor/plugins`, folde
 
 ### Changed
 
-- `ps-statechart`: upstream rewrote the compiler in TypeScript (`scripts/*.ts`, `backends/`, `frontends/`, `passes/`, test corpus); old `.mjs` scripts removed upstream.
+- `ps-statechart`: test suite + TLC corpus moved to `tests/upstream-ps-statechart/` (not installed). Upstream rewrote the compiler in TypeScript (`scripts/*.ts`, `backends/`, `frontends/`, `passes/`, test corpus); old `.mjs` scripts removed upstream.
 - `ps-poteto-mode`: Orchestrate playbook is now agentic; upstream deleted `scripts/orch/` (`orch.ts`, `store.ts`, test).
 - `ps-interrogate`: upstream folded `references/*.md` into `SKILL.md`.
 - Upstream edits in `ps-arena`, `ps-create-formal-verification-skill`, `ps-poteto-help`, `ps-principle-explain-the-number`, `ps-reflect`, `ps-setup-pstack`, `ps-swarm`.
