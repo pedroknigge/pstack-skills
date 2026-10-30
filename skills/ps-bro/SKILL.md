@@ -1,10 +1,10 @@
 ---
 name: ps-bro
-description: "v0.0.2. Restate the last message in plain human language, with no jargon. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Restate the last message in plain human language, with no jargon. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

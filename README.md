@@ -6,7 +6,7 @@
 npx skills add pedroknigge/pstack-skills -g -y
 ```
 
-Version **0.0.2**. MIT. Every `SKILL.md` `description` starts with `v0.0.2` and `metadata.version` is `"0.0.2"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
+Version **0.0.3**. MIT. Every `SKILL.md` `description` starts with `v0.0.3` and `metadata.version` is `"0.0.3"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
 
 pstack is poteto's answer to slop-heavy agent output: less code, higher quality, fearless parallelism. The Cursor plugin is the upstream origin. This pack makes those same skill bodies installable via the [Skills CLI](https://github.com/vercel-labs/skills) (`npx skills add`) and `./install.sh`.
 
@@ -183,6 +183,7 @@ One-line when-to-use is taken from each leaf's description. Full routing notes l
 | [`ps-principle-explain-the-number`](skills/ps-principle-explain-the-number/SKILL.md) | Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. |
 | [`ps-sharpen`](skills/ps-sharpen/SKILL.md) | Make a task deeper, not bigger, then rewrite the prompt. |
 | [`ps-statechart`](skills/ps-statechart/SKILL.md) | Draw what an app's user sees as a Mermaid statechart from a TLA+ model. |
+| [`ps-ketchup-video`](skills/ps-ketchup-video/SKILL.md) | Catch the user up like `ps-ketchup`, with a short subtitled slide video (manual invoke only). |
 | [`ps-technical-writing`](skills/ps-technical-writing/SKILL.md) | Docs, RFCs, READMEs, PR descriptions, commits. |
 | [`ps-no-comments`](skills/ps-no-comments/SKILL.md) | Comment Sicko pass before review. |
 | [`ps-typescript-best-practices`](skills/ps-typescript-best-practices/SKILL.md) | Reading or editing `.ts` / `.tsx`. |
@@ -205,7 +206,7 @@ Each `ps-principle-*` leaf is one rule. `ps-poteto-mode` indexes them and reads 
 pstack-skills/
 ├── README.md
 ├── LICENSE
-├── VERSION                 # 0.0.2
+├── VERSION                 # 0.0.3
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
@@ -235,7 +236,7 @@ Packaging for this repo is MIT, Copyright (c) 2026 Pedro Knigge. See [LICENSE](L
 
 ## Version
 
-`VERSION` is `0.0.2`. Every skill `description` starts with `v0.0.2` and `metadata.version` is `"0.0.2"`. Later cuts: patch bumps `0.0.2` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
+`VERSION` is `0.0.3`. Every skill `description` starts with `v0.0.3` and `metadata.version` is `"0.0.3"`. Later cuts: patch bumps `0.0.3` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
 
 ## License
 

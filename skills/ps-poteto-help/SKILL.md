@@ -1,10 +1,10 @@
 ---
 name: ps-poteto-help
-description: "v0.0.2. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 
@@ -77,6 +77,7 @@ The default answer is `/ps-poteto-mode`, which runs most of the others when its 
 | Understand a change or subsystem, explained plainly | [`/ps-teach`](../ps-teach/SKILL.md) |
 | Catch up on their own recent work on a topic | [`/ps-recall`](../ps-recall/SKILL.md) |
 | Catch up on what changed in this chat since their last message, in plain words and small visuals, with every item waiting on them listed and decidable from the reply alone | [`/ps-ketchup`](../ps-ketchup/SKILL.md) |
+| Catch up like `/ps-ketchup`, in a short subtitled video of slides, with the waiting calls as text under it | [`/ps-ketchup-video`](../ps-ketchup-video/SKILL.md) |
 | Know what a small diff could break outside itself | [`/ps-blast-radius`](../ps-blast-radius/SKILL.md) |
 | Settle types and module shape before code that crosses a function boundary | [`/ps-architect`](../ps-architect/SKILL.md) |
 | Get several attempts at one brief, merged into the best one | [`/ps-arena`](../ps-arena/SKILL.md) |
@@ -92,7 +93,7 @@ The default answer is `/ps-poteto-mode`, which runs most of the others when its 
 | Bring a verification skill and its feature map back in line with the app | [`/ps-maintain-verification-skill`](../ps-maintain-verification-skill/SKILL.md) |
 | Formally verify a race, invariant, or other property that tests rarely reach | [`/ps-create-formal-verification-skill`](../ps-create-formal-verification-skill/SKILL.md) |
 | Bring a formal verification back in line after the code it covers changed, and learn whether a failure is drift or a bug | [`/ps-maintain-formal-verification-skill`](../ps-maintain-formal-verification-skill/SKILL.md) |
-| Show a PM or designer what the user sees as a chart checked by a model, with each bug drawn as a numbered path, turn an agreed chart into a TLA+ skeleton, or audit the code against its TLA+ spec | [`/ps-statechart`](../ps-statechart/SKILL.md) |
+| Show a PM or designer what the user sees as a chart checked by a TLA+ model, with the shortest path to each state that breaks a rule | [`/ps-statechart`](../ps-statechart/SKILL.md) |
 | Vet a performance number before reporting or acting on it | [`/ps-benchmark-checklist`](../ps-benchmark-checklist/SKILL.md) |
 | Run a large or cross-cutting change, or one to review after stepping away | [`/ps-figure-it-out`](../ps-figure-it-out/SKILL.md) |
 | Keep a decision log during a run, and review it afterward | [`/ps-show-me-your-work`](../ps-show-me-your-work/SKILL.md) |
@@ -128,7 +129,7 @@ Playbooks are step lists inside `/ps-poteto-mode`, not skills, so they have no s
 - "land the stack" runs Shipping.
 - "take over this branch" runs Session pickup.
 - "pause safely" runs Pause safely.
-- "full autopilot on this queue" runs Autopilot-full. "stack them, don't ship" runs Autopilot-stack.
+- "full autopilot on this queue" runs Autopilot-full. "autopilot, don't merge" runs Autopilot-stack.
 - "run the eval playbook" runs Eval.
 
 Without `/ps-poteto-mode`, a phrase such as "babysit this pr" can start Cursor's own skill for the same job instead. The Playbooks section of [`ps-poteto-mode`](../ps-poteto-mode/SKILL.md) lists every playbook and when it applies. [Guide page 6](../../docs/guide/06-verify-and-ship.md) covers opening, babysitting, and landing a PR.

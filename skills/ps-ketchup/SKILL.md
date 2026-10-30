@@ -1,10 +1,10 @@
 ---
 name: ps-ketchup
-description: "v0.0.2. Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ps-ketchup. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ps-ketchup. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

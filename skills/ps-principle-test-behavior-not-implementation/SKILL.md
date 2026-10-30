@@ -1,10 +1,10 @@
 ---
 name: ps-principle-test-behavior-not-implementation
-description: "v0.0.2. Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

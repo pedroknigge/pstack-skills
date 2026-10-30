@@ -1,10 +1,10 @@
 ---
 name: ps-principle-make-operations-idempotent
-description: "v0.0.2. Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 

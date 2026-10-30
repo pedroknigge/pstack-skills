@@ -1,10 +1,10 @@
 ---
 name: ps-technical-writing
-description: "v0.0.2. Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /ps-technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.3. Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /ps-technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   author: pedroknigge
 ---
 
