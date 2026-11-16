@@ -1,10 +1,10 @@
 ---
 name: ps-principle-explain-the-number
-description: "v0.0.3. Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 

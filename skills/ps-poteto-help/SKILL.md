@@ -1,10 +1,10 @@
 ---
 name: ps-poteto-help
-description: "v0.0.3. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 
@@ -49,7 +49,7 @@ If cost is the worry, say where the tokens go and how to spend fewer. pstack spe
 
 pstack is built for Cursor, and it also installs in Claude Code with `/plugin marketplace add cursor/plugins`, then `/plugin install pstack@cursor-plugins`. There, each command takes a `pstack:` prefix, such as `/pstack:poteto-mode`. The [Claude Code adapter](../../docs/harness/claude-code.md) maps the Cursor names, and a step that needs a Cursor-only feature, such as Bugbot or Automations, is skipped with a one-line note.
 
-Other tools can read the skills, because they use the Agent Skills format. But most workflow skills, including `/ps-poteto-mode`, `/ps-how`, `/ps-why`, and `/ps-teach`, spawn Cursor subagents with per-role models, and Custom Modes and `/loop` are Cursor features, so those parts may not work there.
+Other tools can read the skills, because they use the Agent Skills format. But most workflow skills, including `/ps-poteto-mode`, `/ps-how`, and `/ps-teach`, spawn Cursor subagents, some with per-role models, and Custom Modes and `/loop` are Cursor features, so those parts may not work there.
 
 ## Start a task with `/ps-poteto-mode`
 
