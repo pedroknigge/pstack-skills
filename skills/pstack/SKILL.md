@@ -1,9 +1,9 @@
 ---
 name: pstack
-description: "v0.0.3. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 
@@ -197,6 +197,10 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 | Skill | When to use |
 |---|---|
 | `ps-ketchup-video` | Catch the user up like `ps-ketchup`, with a short subtitled video of slides; waiting calls as text under it. Manual invoke only (`/ps-ketchup-video`). |
+
+### Changed in 0.0.4 (upstream pstack 0.15.42)
+
+No skills added or removed. `ps-how` and `ps-why` are now one-file skills (a single subagent, no `references/`). `ps-setup-pstack` / `ps-poteto-mode` ship new default models and a `# defaults: 2` marker; rerun `/ps-setup-pstack` if your rule predates it.
 
 ## After you pick
 

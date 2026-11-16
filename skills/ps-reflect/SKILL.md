@@ -1,10 +1,10 @@
 ---
 name: ps-reflect
-description: "v0.0.3. Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 
@@ -33,7 +33,7 @@ Each reviewer and the synthesizer name a role line in the `pstack-models.mdc` ru
 | Lens | Role line | Default `model` | Prompt template |
 |---|---|---|---|
 | Judgment | `reflect judgment, divergent, synthesizer` | `claude-opus-5-5-xhigh` | `references/judgment-reviewer.md` |
-| Tooling | `reflect tooling` | `grok-4.7-xhigh-fast` | `references/tooling-reviewer.md` |
+| Tooling | `reflect tooling` | `claude-opus-5-5-high-fast` | `references/tooling-reviewer.md` |
 | Divergent | `reflect judgment, divergent, synthesizer` | `claude-opus-5-5-xhigh` | `references/divergent-reviewer.md` |
 
 Pass each template verbatim, substituting the transcript path or digest where marked. Reviewers return findings in the `Task` response body.

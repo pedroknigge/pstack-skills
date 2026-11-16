@@ -1,10 +1,10 @@
 ---
 name: ps-sharpen
-description: "v0.0.3. Make a task deeper, not bigger, then rewrite the prompt. Use for /ps-sharpen. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Make a task deeper, not bigger, then rewrite the prompt. Use for /ps-sharpen. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 
@@ -17,4 +17,4 @@ I want a deeper version of this task, not a bigger one. Before rewriting it, do 
 
 Then rewrite my prompt to ask for exactly that.
 
-Leave choices that are mine to make open instead of deciding them.
+Have the rewritten prompt ask the agent to prototype any choice an experiment can settle and recommend an option based on what it observed. Leave product or preference choices that no experiment can settle for me to make.

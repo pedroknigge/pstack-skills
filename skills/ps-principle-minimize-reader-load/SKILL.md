@@ -1,10 +1,10 @@
 ---
 name: ps-principle-minimize-reader-load
-description: "v0.0.3. Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.4. Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   author: pedroknigge
 ---
 
