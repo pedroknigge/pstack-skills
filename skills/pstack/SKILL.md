@@ -204,7 +204,7 @@ No skills added or removed. `ps-how` and `ps-why` are now one-file skills (a sin
 
 ### Changed in 0.0.5 (upstream pstack 0.15.43)
 
-No skills added or removed. `ps-poteto-mode` ships `worker.md` (every spawned agent's kickoff starts with `Read <path>/worker.md before anything else.`, `<path>` = the installed `ps-poteto-mode` folder) and drops the Orchestrate playbook. `ps-architect` and `ps-reflect` are one-file skills with no subagent panels. Routing is Opus-first and capped at `xhigh`; rerun `/ps-setup-pstack` if your rule lacks `# defaults: 3`.
+No skills added or removed. `ps-poteto-mode` ships `skills/ps-poteto-mode/worker.md` (every spawned agent's kickoff starts with `Read <path>/worker.md before anything else.`, `<path>` = the installed `ps-poteto-mode` folder) and drops the Orchestrate playbook. `ps-architect` and `ps-reflect` are one-file skills with no subagent panels. Routing is Opus-first and capped at `xhigh`; rerun `/ps-setup-pstack` if your rule lacks `# defaults: 3`.
 
 ## After you pick
 
