@@ -1,6 +1,6 @@
 # AGENTS.md — pstack-skills (skill pack)
 
-**Status:** first public cut · pack version **0.0.4**
+**Status:** first public cut · pack version **0.0.5**
 
 ## What this folder is
 
@@ -21,7 +21,7 @@ pstack-skills/                 ← this git root
 ├── AGENTS.md                  ← this hub
 ├── README.md                  ← human-facing install
 ├── LICENSE                    ← MIT, Pedro Knigge 2026
-├── VERSION                    ← 0.0.4
+├── VERSION                    ← 0.0.5
 ├── CHANGELOG.md
 ├── install.sh                 ← copies skills/* into agent skill dirs
 ├── docs/                      ← dogfood-cycle.md, release-checklist.md
@@ -41,9 +41,9 @@ pstack-skills/                 ← this git root
 1. Read this hub and `skills/pstack/SKILL.md` before changing pack behavior.
 2. Do **not** invent new skill verbs or rewrite poteto/pstack meaning.
 3. Leaf folder names and frontmatter `name:` must stay `ps-<original-slug>`. Parent stays `pstack`.
-4. Every `SKILL.md` `description` starts with `v0.0.4` (e.g. `v0.0.4. …` or `v0.0.4 — …`) and includes `license: MIT` plus `metadata.version: "0.0.4"` / `metadata.author: pedroknigge`. If the leading version is not the latest in `VERSION` / changelog, update the skill before using it.
+4. Every `SKILL.md` `description` starts with `v0.0.5` (e.g. `v0.0.5. …` or `v0.0.5 — …`) and includes `license: MIT` plus `metadata.version: "0.0.5"` / `metadata.author: pedroknigge`. If the leading version is not the latest in `VERSION` / changelog, update the skill before using it.
 5. Internal cross-refs to other leaves use `ps-*` (`/ps-how`, the `ps-why` skill, `../ps-principle-…/`). Keep Cursor built-ins (`/create-skill`, `/loop`) and `cursor-team-kit` (`/deslop`) unprefixed.
-6. Role labels in `ps-setup-pstack` (`hardest tasks`, `swarm workers`, …) are config keys, not skill invokes — leave them.
+6. Role labels in `ps-setup-pstack` (`swarm workers`, `arena runners`, …) are config keys, not skill invokes — leave them.
 7. Keep `README.md`, `install.sh`, `VERSION`, and `CHANGELOG.md` aligned when the pack surface changes. Bumping the pack version means `VERSION`, every `description` prefix, every `metadata.version`, changelog, and README together.
 8. Do not force-push `main`. Do not publish to a skills registry unless the user asks.
 9. Pack self-telemetry uses `scripts/ps-issue.sh` → **always** `pedroknigge/pstack-skills`. Never consumer origin. Never `gh issue create` without explicit human confirmation in the same turn. Children (`PS_CHILD` / `OF_CHILD`) draft only.

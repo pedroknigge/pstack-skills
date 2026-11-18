@@ -6,7 +6,7 @@
 npx skills add pedroknigge/pstack-skills -g -y
 ```
 
-Version **0.0.4**. MIT. Every `SKILL.md` `description` starts with `v0.0.4` and `metadata.version` is `"0.0.4"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
+Version **0.0.5**. MIT. Every `SKILL.md` `description` starts with `v0.0.5` and `metadata.version` is `"0.0.5"` so a stale install is obvious. This GitHub repo is Pedro Knigge's public port. It is **not** an official poteto or Cursor publication.
 
 pstack is poteto's answer to slop-heavy agent output: less code, higher quality, fearless parallelism. The Cursor plugin is the upstream origin. This pack makes those same skill bodies installable via the [Skills CLI](https://github.com/vercel-labs/skills) (`npx skills add`) and `./install.sh`.
 
@@ -206,7 +206,7 @@ Each `ps-principle-*` leaf is one rule. `ps-poteto-mode` indexes them and reads 
 pstack-skills/
 ├── README.md
 ├── LICENSE
-├── VERSION                 # 0.0.4
+├── VERSION                 # 0.0.5
 ├── CHANGELOG.md
 ├── install.sh
 ├── AGENTS.md
@@ -236,7 +236,7 @@ Packaging for this repo is MIT, Copyright (c) 2026 Pedro Knigge. See [LICENSE](L
 
 ## Version
 
-`VERSION` is `0.0.4`. Every skill `description` starts with `v0.0.4` and `metadata.version` is `"0.0.4"`. Later cuts: patch bumps `0.0.4` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
+`VERSION` is `0.0.5`. Every skill `description` starts with `v0.0.5` and `metadata.version` is `"0.0.5"`. Later cuts: patch bumps `0.0.5` → `0.0.99`, then `0.1.0` — bump the file, every prefix, and every `metadata.version` together. See [CHANGELOG.md](CHANGELOG.md). After merge, follow [docs/release-checklist.md](docs/release-checklist.md) so the powered-on Macs pick up that prefix.
 
 ## License
 

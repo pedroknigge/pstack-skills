@@ -1,10 +1,10 @@
 ---
 name: ps-interrogate
-description: "v0.0.4. Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Adversaries try to break a change or design, and only findings proven by a run survive. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Adversaries try to break a change or design, and only findings proven by a run survive. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 

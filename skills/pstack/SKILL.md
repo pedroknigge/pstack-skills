@@ -1,9 +1,9 @@
 ---
 name: pstack
-description: "v0.0.4. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Parent router for the pstack-skills pack. Use for /pstack, /ps, or when you need to pick which pstack leaf to run. Lists every ps-* skill and when to use it. Also use when the user says report this to pstack, file a pstack issue, sugerí mejora al skill, dogfood, blindtest, probar pstack en un repo random, or asks for a pstack report / HTML / dashboard. Public port of the Cursor pstack plugin; this GitHub repo is not published by poteto or Cursor. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 
@@ -201,6 +201,10 @@ Every Desktop leaf is listed once. One-line when-to-use is taken from that leaf'
 ### Changed in 0.0.4 (upstream pstack 0.15.42)
 
 No skills added or removed. `ps-how` and `ps-why` are now one-file skills (a single subagent, no `references/`). `ps-setup-pstack` / `ps-poteto-mode` ship new default models and a `# defaults: 2` marker; rerun `/ps-setup-pstack` if your rule predates it.
+
+### Changed in 0.0.5 (upstream pstack 0.15.43)
+
+No skills added or removed. `ps-poteto-mode` ships `worker.md` (every spawned agent's kickoff starts with `Read <path>/worker.md before anything else.`, `<path>` = the installed `ps-poteto-mode` folder) and drops the Orchestrate playbook. `ps-architect` and `ps-reflect` are one-file skills with no subagent panels. Routing is Opus-first and capped at `xhigh`; rerun `/ps-setup-pstack` if your rule lacks `# defaults: 3`.
 
 ## After you pick
 
