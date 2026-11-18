@@ -270,5 +270,30 @@ class HtmlRenderer(unittest.TestCase):
             self.assertIn("<table>", html)
 
 
+class VerifyPack(unittest.TestCase):
+    def test_verify_pack(self) -> None:
+        checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("scripts/verify-pack.sh", checklist)
+        self.assertIn("feature-map.md", checklist)
+        self.assertIn("docs/feature-map.md", agents)
+        r = run(["bash", str(SCRIPTS / "verify-pack.sh")])
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        text = (ROOT / "verify-evidence.md").read_text(encoding="utf-8")
+        lines = [ln for ln in text.splitlines() if ln.startswith(("PASS ", "FAIL "))]
+        expected = [
+            "PASS global install",
+            "PASS npx skills add (not run offline)",
+            "PASS pstack router",
+            "PASS ps-issue",
+            "PASS render-report",
+            "PASS ps-detect-siblings",
+            "PASS port-upstream",
+        ]
+        self.assertEqual(lines, expected, text)
+        for line in expected:
+            self.assertIn(line, r.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

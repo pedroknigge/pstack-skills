@@ -7,6 +7,7 @@ Do **not** SSH to those machines from a cloud agent. Pedro (or Pstacky on a Mac 
 ## Steps
 
 1. **Tag / bump `VERSION`.** Patch `0.0.1` … `0.0.99`, then `0.1.0`. Lockstep: `VERSION`, every `SKILL.md` `description` prefix (`vX.Y.Z`), every `metadata.version`, changelog, README. Run `python3 scripts/check-pack.py` and require exit 0 before tagging.
+   `scripts/verify-pack.sh` must PASS every row in [feature-map.md](feature-map.md).
 2. **Merge the PR** to `main`. Publish the git tag that matches `VERSION` if this cut uses tags.
 3. **On each powered-on Mac** (M5 and/or M1 — skip the one that is off):
 
