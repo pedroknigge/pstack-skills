@@ -1,0 +1,6 @@
+# path<TAB>exact span — upstream names quoted on purpose (documentation-manager name map), not live cross-refs
+skills/pstack/references/documentation-manager-bridge.md	/architect
+skills/pstack/references/documentation-manager-bridge.md	/figure-it-out
+skills/pstack/references/documentation-manager-bridge.md	`architect`
+skills/pstack/references/documentation-manager-bridge.md	`figure-it-out`
+skills/pstack/references/documentation-manager-bridge.md	`setup-pstack`

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pack conventions for pstack-skills 0.0.5 — no invented skill verbs."""
+"""Pack conventions for pstack-skills. No invented skill verbs."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 SKILLS = ROOT / "skills"
 SCRIPTS = ROOT / "scripts"
 PARENT_SCRIPTS = SKILLS / "pstack" / "scripts"
@@ -31,10 +32,10 @@ def run(argv: list[str], env: dict[str, str] | None = None, cwd: Path | None = N
 
 
 class VersionLock(unittest.TestCase):
-    def test_version_file(self) -> None:
-        self.assertEqual((ROOT / "VERSION").read_text(encoding="utf-8").strip(), "0.0.5")
+    def test_version_file_is_semver(self) -> None:
+        self.assertRegex(VERSION, r"^\d+\.\d+\.\d+$")
 
-    def test_every_description_starts_with_v001(self) -> None:
+    def test_every_description_starts_with_version(self) -> None:
         skills = sorted(SKILLS.glob("*/SKILL.md"))
         self.assertGreaterEqual(len(skills), 58)
         bad = []
@@ -50,7 +51,7 @@ class VersionLock(unittest.TestCase):
                     re.M,
                 )
                 desc = folded.group(1) if folded else ""
-            if not desc.startswith("v0.0.5"):
+            if not desc.startswith(f"v{VERSION}"):
                 bad.append(path.relative_to(ROOT).as_posix())
         self.assertEqual(bad, [])
 
@@ -58,7 +59,7 @@ class VersionLock(unittest.TestCase):
         text = (SKILLS / "pstack" / "SKILL.md").read_text(encoding="utf-8")
         desc = re.search(r'^description:\s*"([^"]+)"', text, re.M)
         self.assertIsNotNone(desc)
-        self.assertTrue(desc.group(1).startswith("v0.0.5"))
+        self.assertTrue(desc.group(1).startswith(f"v{VERSION}"))
         self.assertIn("report this to pstack", desc.group(1))
         self.assertIn("sugerí mejora al skill", desc.group(1))
         self.assertIn("dogfood", desc.group(1))
@@ -220,6 +221,7 @@ class DogfoodCycle(unittest.TestCase):
         self.assertIn("M5", text)
         self.assertIn("M1", text)
         self.assertIn("Do **not** SSH", text)
+        self.assertIn("scripts/check-pack.py", text)
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("docs/release-checklist.md", readme)
         changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
@@ -230,6 +232,13 @@ class DogfoodCycle(unittest.TestCase):
         self.assertIn("references/dogfood.md", text)
         self.assertIn("dogfood", text.lower())
         self.assertIn("blindtest", text.lower())
+
+
+class PackCheck(unittest.TestCase):
+    def test_check_pack_exits_clean(self) -> None:
+        r = run(["python3", str(SCRIPTS / "check-pack.py")])
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(r.stdout, "")
 
 
 class HtmlRenderer(unittest.TestCase):
