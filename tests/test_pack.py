@@ -280,10 +280,10 @@ class VerifyPack(unittest.TestCase):
         r = run(["bash", str(SCRIPTS / "verify-pack.sh")])
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         text = (ROOT / "verify-evidence.md").read_text(encoding="utf-8")
-        lines = [ln for ln in text.splitlines() if ln.startswith(("PASS ", "FAIL "))]
+        lines = [ln for ln in text.splitlines() if ln.startswith(("PASS ", "FAIL ", "SKIP "))]
         expected = [
             "PASS global install",
-            "PASS npx skills add (not run offline)",
+            "SKIP npx skills add (not run offline)",
             "PASS pstack router",
             "PASS ps-issue",
             "PASS render-report",
@@ -293,6 +293,39 @@ class VerifyPack(unittest.TestCase):
         self.assertEqual(lines, expected, text)
         for line in expected:
             self.assertIn(line, r.stdout)
+        pass_n = sum(line.startswith("PASS ") for line in lines)
+        fail_n = sum(line.startswith("FAIL ") for line in lines)
+        skip_n = sum(line.startswith("SKIP ") for line in lines)
+        summary = f"{pass_n} PASS, {fail_n} FAIL, {skip_n} SKIP"
+        self.assertEqual(text.splitlines()[-1], summary)
+        self.assertNotIn("PASS npx", text)
+        self.assertGreater(skip_n, 0)
+
+    def test_unexecuted_cannot_print_pass(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            evidence = Path(tmp) / "verify-evidence.md"
+            r = run(
+                [
+                    "bash",
+                    "-c",
+                    'VERIFY_EVIDENCE="$1" source "$2"; pass "unrun proof"',
+                    "bash",
+                    str(evidence),
+                    str(SCRIPTS / "verify-pack.sh"),
+                ]
+            )
+            self.assertNotEqual(r.returncode, 0, r.stdout + r.stderr)
+            self.assertFalse(
+                any(line.startswith("PASS ") for line in r.stdout.splitlines()),
+                r.stdout + r.stderr,
+            )
+            text = evidence.read_text(encoding="utf-8")
+            self.assertFalse(
+                any(line.startswith("PASS ") for line in text.splitlines()),
+                text,
+            )
+            self.assertTrue(any(line.startswith("FAIL ") for line in text.splitlines()), text)
+            self.assertEqual(text.splitlines()[-1], "0 PASS, 1 FAIL, 0 SKIP")
 
 
 if __name__ == "__main__":

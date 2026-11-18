@@ -6,17 +6,26 @@ set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-EVIDENCE="$ROOT/verify-evidence.md"
+EVIDENCE="${VERIFY_EVIDENCE:-$ROOT/verify-evidence.md}"
 EXPECTED_SKILLS=59
 VERSION="$(tr -d '[:space:]' < "$ROOT/VERSION")"
 MAP="$ROOT/docs/feature-map.md"
 SCRATCH="$(mktemp -d "${TMPDIR:-/tmp}/verify-pack.XXXXXX")"
 
 LINES=()
+ran=0
+pass_count=0
 fail_count=0
+skip_count=0
 
 pass() {
+  if [[ "$ran" -ne 1 ]]; then
+    fail "$1: PASS without running the proof -> fix: run the proof command before recording PASS, or record SKIP"
+    return
+  fi
+  ran=0
   LINES+=("PASS $1")
+  pass_count=$((pass_count + 1))
   printf 'PASS %s\n' "$1"
 }
 
@@ -24,6 +33,13 @@ fail() {
   LINES+=("FAIL $1")
   printf 'FAIL %s\n' "$1"
   fail_count=$((fail_count + 1))
+}
+
+skip() {
+  ran=0
+  LINES+=("SKIP $1")
+  skip_count=$((skip_count + 1))
+  printf 'SKIP %s\n' "$1"
 }
 
 join_causes() {
@@ -46,8 +62,14 @@ on_exit() {
     if ((${#LINES[@]})); then
       printf '%s\n' "${LINES[@]}"
     fi
+    echo
+    printf '%s PASS, %s FAIL, %s SKIP\n' "$pass_count" "$fail_count" "$skip_count"
   } >"$EVIDENCE" || true
+  printf '%s PASS, %s FAIL, %s SKIP\n' "$pass_count" "$fail_count" "$skip_count"
   rm -rf "$SCRATCH" || true
+  if ((fail_count > 0 && rc == 0)); then
+    rc=1
+  fi
   exit "$rc"
 }
 trap on_exit EXIT
@@ -179,6 +201,7 @@ PY
     fail "global install: $(join_causes "${causes[@]}")"
     return
   fi
+  ran=1
   pass "global install"
 }
 
@@ -187,13 +210,14 @@ prove_npx() {
     fail "npx skills add: docs/feature-map.md does not list \`npx skills add pedroknigge/pstack-skills -g -y\` as not run offline -> fix: add that registry-install row and do not invoke npx from scripts/verify-pack.sh"
     return
   fi
-  pass "npx skills add (not run offline)"
+  skip "npx skills add (not run offline)"
 }
 
 prove_router() {
   local out rc=0
   out="$(python3 "$ROOT/scripts/check-pack.py" 2>&1)" || rc=$?
   if [[ "$rc" -eq 0 && -z "$out" ]]; then
+    ran=1
     pass "pstack router"
     return
   fi
@@ -244,6 +268,7 @@ prove_issue() {
     fail "ps-issue: $(join_causes "${causes[@]}")"
     return
   fi
+  ran=1
   pass "ps-issue"
 }
 
@@ -257,6 +282,7 @@ prove_report() {
     fail "render-report: exit ${rc}: ${html} -> fix: python3 scripts/render-report.py must write a non-empty HTML twin beside the markdown"
     return
   fi
+  ran=1
   pass "render-report"
 }
 
@@ -268,6 +294,7 @@ prove_siblings() {
     fail "ps-detect-siblings: exit ${rc}, output \`${out//$'\n'/ }\` -> fix: on this repo scripts/ps-detect-siblings.sh must print ArkGate, Orderfield, Docs, and Vibe-proof as none and exit 0"
     return
   fi
+  ran=1
   pass "ps-detect-siblings"
 }
 
@@ -358,8 +385,13 @@ PY
     fail "port-upstream: ${out:-porter check exited ${rc} -> fix: run scripts/check-pack.py at the end of scripts/port-upstream.py}"
     return
   fi
+  ran=1
   pass "port-upstream"
 }
+
+if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
+  return 0
+fi
 
 prove_install
 prove_npx
