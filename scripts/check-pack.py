@@ -423,6 +423,7 @@ def check_roles() -> None:
         add("skills/ps-setup-pstack/SKILL.md", "setup skill is missing", "add skills/ps-setup-pstack/SKILL.md")
         return
     setup_text = setup.read_text(encoding="utf-8")
+    labels: list[str] = []
     for line in agents.read_text(encoding="utf-8").splitlines():
         if "role label" not in line.lower():
             continue
@@ -430,12 +431,17 @@ def check_roles() -> None:
             label = match.group(1)
             if label == "ps-setup-pstack" or label.startswith(("ps-", "/")):
                 continue
-            if label not in setup_text:
-                add(
-                    "AGENTS.md",
-                    f"role label `{label}` is not in skills/ps-setup-pstack/SKILL.md",
-                    "use a role label from that skill's step 5 rule, or add the role there",
-                )
+            labels.append(label)
+    # A short AGENTS.md may name no roles.
+    if not labels:
+        return
+    for label in labels:
+        if label not in setup_text:
+            add(
+                "AGENTS.md",
+                f"role label `{label}` is not in skills/ps-setup-pstack/SKILL.md",
+                "use a role label from that skill's step 5 rule, or add the role there",
+            )
 
 
 def main() -> int:
