@@ -91,7 +91,6 @@ is_child() {
 }
 
 redact() {
-  # Strip common secret/token shapes. Do not send leftovers that are only redaction.
   printf '%s' "$1" | sed -E \
     -e 's/ghp_[A-Za-z0-9_]{20,}/<redacted>/g' \
     -e 's/github_pat_[A-Za-z0-9_]{20,}/<redacted>/g' \
