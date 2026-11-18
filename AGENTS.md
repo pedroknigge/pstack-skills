@@ -68,6 +68,7 @@ pstack-skills/                 ← this git root
 - Issue HITL: [skills/pstack/references/issue.md](skills/pstack/references/issue.md)
 - Dogfood cycle: [docs/dogfood-cycle.md](docs/dogfood-cycle.md)
 - Release checklist: [docs/release-checklist.md](docs/release-checklist.md)
+- Verify pack: [docs/feature-map.md](docs/feature-map.md) (`scripts/verify-pack.sh`)
 - Bridges: [skills/pstack/references/](skills/pstack/references/)
 - Install: [README.md](README.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
