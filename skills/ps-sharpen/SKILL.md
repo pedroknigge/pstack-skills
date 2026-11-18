@@ -1,10 +1,10 @@
 ---
 name: ps-sharpen
-description: "v0.0.4. Make a task deeper, not bigger, then rewrite the prompt. Use for /ps-sharpen. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Make a task deeper, not bigger, then rewrite the prompt. Use for /ps-sharpen. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 

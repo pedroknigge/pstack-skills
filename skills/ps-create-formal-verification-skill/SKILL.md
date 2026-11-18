@@ -1,10 +1,10 @@
 ---
 name: ps-create-formal-verification-skill
-description: "v0.0.4. Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. Use for /ps-create-formal-verification-skill, \"model-check this race\", \"prove this invariant\", or when concurrency, retries, state machines, parsers, or unsafe code need more than tests. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. Use for /ps-create-formal-verification-skill, \"model-check this race\", \"prove this invariant\", or when concurrency, retries, state machines, parsers, or unsafe code need more than tests. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 

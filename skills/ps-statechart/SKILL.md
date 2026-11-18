@@ -1,10 +1,10 @@
 ---
 name: ps-statechart
-description: "v0.0.4. Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest path to each state that breaks a rule. Use for /ps-statechart, or to show a bug as a path through states. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest path to each state that breaks a rule. Use for /ps-statechart, or to show a bug as a path through states. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 

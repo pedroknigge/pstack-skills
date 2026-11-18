@@ -1,10 +1,10 @@
 ---
 name: ps-poteto-help
-description: "v0.0.4. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Guides users through pstack setup, /ps-poteto-mode, and picking the skill, playbook, or principle for a task. Type /ps-poteto-help with a question. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 
@@ -53,7 +53,7 @@ Other tools can read the skills, because they use the Agent Skills format. But m
 
 ## Start a task with `/ps-poteto-mode`
 
-`/ps-poteto-mode` matches the task to a playbook, copies the playbook's steps into the todo list, and runs the other skills as the steps need them. A step it skips stays in the list as `skip: <reason>`. A good prompt states the goal and how to tell it's done. It doesn't list skills, because a hand-written sequence tends to drop or reorder steps the playbook would keep. Read [`references/prompting.md`](references/prompting.md) before you help word one. [Guide page 2](../../docs/guide/02-poteto-mode.md) has examples.
+`/ps-poteto-mode` matches the task to a playbook, copies the playbook's steps into the todo list, and runs the other skills as the steps need them. A good prompt states the goal and how to tell it's done. It doesn't list skills, because a hand-written sequence tends to drop or reorder steps the playbook would keep. Read [`references/prompting.md`](references/prompting.md) before you help word one. [Guide page 2](../../docs/guide/02-poteto-mode.md) has examples.
 
 Whether `/ps-poteto-mode` stays on depends on how the user starts it:
 
@@ -110,16 +110,15 @@ Close calls:
 
 - `/ps-how` explains what the code does. `/ps-why` explains the reasons. `/ps-teach` runs one or both and explains the result plainly.
 - `/ps-arena` gives every worker the same brief and merges the best parts. `/ps-swarm` splits work into slices or a race and returns one report.
-- `/ps-architect` implements right after it settles the design. Add "with checkpoint" to review the design before it writes code.
 - `/ps-interrogate` reviews the diff. `/ps-blast-radius` looks for breakage outside the diff and proves the one fact that makes the change safe.
 - `/ps-recall` rebuilds context across recent chats. `/ps-ketchup` covers only this chat since the user's last message. Resuming one specific chat or branch is the Session pickup playbook.
-- `/ps-figure-it-out` designs one rigorous run. The Orchestrate playbook runs a program that spans days and many PRs. The Autonomous run playbook drives one task to a finish condition.
+- `/ps-figure-it-out` designs one rigorous run. The Autonomous run playbook drives one task to a finish condition.
 
 Not in pstack:
 
 - `/deslop`, `control-cli`, and `control-ui` ship in the `cursor-team-kit` plugin.
 - `/loop` and `/create-skill` are Cursor built-ins.
-- pstack has no `/orchestrate` skill. Orchestrate is a `/ps-poteto-mode` playbook. If the slash menu shows `/orchestrate`, another plugin provides it.
+- pstack has no `/orchestrate` skill. If the slash menu shows `/orchestrate`, another plugin provides it.
 
 ## Playbooks and principles
 
@@ -132,7 +131,7 @@ Playbooks are step lists inside `/ps-poteto-mode`, not skills, so they have no s
 - "full autopilot on this queue" runs Autopilot-full. "autopilot, don't merge" runs Autopilot-stack.
 - "run the eval playbook" runs Eval.
 
-Without `/ps-poteto-mode`, a phrase such as "babysit this pr" can start Cursor's own skill for the same job instead. The Playbooks section of [`ps-poteto-mode`](../ps-poteto-mode/SKILL.md) lists every playbook and when it applies. [Guide page 6](../../docs/guide/06-verify-and-ship.md) covers opening, babysitting, and landing a PR.
+Without `/ps-poteto-mode`, a phrase such as "babysit this pr" can start Cursor's own skill for the same job instead. The Playbooks section of [`ps-poteto-mode`](../ps-poteto-mode/SKILL.md) lists every playbook. [Guide page 6](../../docs/guide/06-verify-and-ship.md) covers opening, babysitting, and landing a PR.
 
 pstack has no planning skill. Cursor's Plan Mode works alongside it. For work that spans phases or stacked PRs, asking `/ps-poteto-mode` for a plan runs the [Multi-phase plan playbook](../ps-poteto-mode/playbooks/multi-phase-plan.md), which writes the plan and doesn't implement it. For a design question, the Prototype playbook or `/ps-architect` settles it in code first.
 

@@ -1,10 +1,10 @@
 ---
 name: ps-principle-subtract-before-you-add
-description: "v0.0.4. Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
+description: "v0.0.5. Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base. If the leading version is not the latest in VERSION / changelog, update the skill before using it."
 license: MIT
 disable-model-invocation: true
 metadata:
-  version: "0.0.4"
+  version: "0.0.5"
   author: pedroknigge
 ---
 

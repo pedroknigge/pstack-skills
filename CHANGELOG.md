@@ -6,6 +6,28 @@ Versioning: patch bumps `0.0.1` → `0.0.99`, then `0.1.0`.
 
 ## [Unreleased]
 
+## [0.0.5] — 2026-11-18
+
+Sync with the official Cursor pstack plugin **0.15.43** (`cursor/plugins`, folder `pstack/`, commit `2f87c85`, 2026-11-16 18:47 UTC-3, PR cursor/plugins#1249). Upstream author: Lauren Tan (poteto), MIT; see `LICENSE-UPSTREAM`. Regenerated with `scripts/port-upstream.py` (no script changes needed; `worker.md` lives inside the skill folder, so it is copied and installed with `ps-poteto-mode`).
+
+### Added
+
+- `ps-poteto-mode/worker.md`: standing rules for every agent a run spawns (operator bar, no extra gates, no question tools, PRs opened ready, PR title/body shape). Kickoffs start with `Read <path>/worker.md before anything else.`
+
+### Changed
+
+- Routing: Opus-first defaults (`claude-opus-5-5-xhigh-fast` for code, prose and judgment), nothing above `xhigh`. `ps-setup-pstack` writes `# defaults: 3`, drops the `unlimited` budget, retires the `hardest tasks`, `architect runners`, and `reflect …` roles, and migrates older rules.
+- `ps-poteto-mode`: shorter SKILL and playbooks; Orchestrate playbook removed; `multi-phase-plan` cut to five steps (no `check-plan.mjs`); `opening-a-pr` cut to three paragraphs; `babysit` cut to six rules.
+- `ps-architect`: one file; sketch two shapes yourself, use `ps-arena` for large or contested designs.
+- `ps-reflect`: one short file, no subagents; new description.
+- `ps-unslop` and `ps-technical-writing`: shorter bodies (unslop keeps its rule numbers).
+- 14 principle leaves cut to shorter bodies, frontmatter unchanged.
+- Smaller edits across other leaves. All leaves re-stamped `v0.0.5` / `metadata.version: "0.0.5"`.
+
+### Removed (upstream)
+
+- No skills removed. Files removed inside leaves: `ps-architect/references/{design-red-flags,rationale-template,runner-prompt}.md`, `ps-poteto-mode/playbooks/orchestrate.md`, `ps-poteto-mode/scripts/check-plan.{mjs,test.ts}`, `ps-reflect/references/{divergent-reviewer,judgment-reviewer,synthesizer,tooling-reviewer}.md`.
+
 ## [0.0.4] — 2026-11-15
 
 Sync with the official Cursor pstack plugin **0.15.42** (`cursor/plugins`, folder `pstack/`, commit `bf0c7cd`, 2026-11-15 00:36 UTC-3, PR cursor/plugins#1236). Upstream author: Lauren Tan (poteto), MIT; see `LICENSE-UPSTREAM`. Regenerated with `scripts/port-upstream.py` (no script changes needed).
